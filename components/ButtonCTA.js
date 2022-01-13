@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import logo from '../public/assets/icons/aeropay-1-white.svg'
+// import logo from '../public/assets/icons/aeropay-1.svg'
 
 
 export const ButtonCTA = ({ text, value }) => {

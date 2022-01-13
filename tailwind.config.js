@@ -88,7 +88,7 @@ module.exports = {
         'Brand-Light': '#e5f0ff',
         'Brand-Light-2': '#cce1ff',
         'Green-Default': '#29cc74',
-        'Green-Default': '#ccffe3',
+        'Green-Light': '#ccffe3',
         'Red-Default': '#e07f4f',
         'Red-Light': '#ffdfd9',
         'Special-Illustration-BG-Dark': '#7296eb',
