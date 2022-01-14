@@ -1,12 +1,10 @@
 
 
-export const NumberSelector = ({ value }) => {
+export const NumberSelector = () => {
     return (
-        <div className="select-none bg-gradient-to-r from-Brand-Default-Primary to-Brand-Default-Secondary w-fit rounded-xl flex justify-center px-4 py-1 cursor-pointer">
+        <div className="select-none bg-gradient-to-r from-Brand-Default-Primary to-Brand-Default-Secondary w-fit rounded-xl flex justify-center px-4 py-1 cursor-pointer mx-1">
             <span className="text-D-TEXT-L1-Default text-Neutral100">
-                {
-                    !value && (1234)
-                }
+                1000
             </span>
         </div>
     )

@@ -7,7 +7,7 @@ export const Footer = () => {
     const [isHover, setIsHover] = useState("/assets/icons/github-default.svg")
       
     return (
-        <footer className="select-none flex items-center justify-center">
+        <footer className="select-none flex items-center justify-center border-t border-t-Neutral500 shadow-top">
             <div className="px-2 py-4">
                 <Image
                     src={isHover}

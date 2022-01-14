@@ -6,14 +6,14 @@ import { ButtonNav } from './ButtonNav'
 const btnLang =
 {
     src: "/assets/propios/spain.svg",
-    w: 32,
-    h: 32
+    w: 24,
+    h: 24
 }
 const btnMode =
 {
     src: "/assets/propios/dark-mode.svg",
-    w: 32,
-    h: 32
+    w: 24,
+    h: 24
 }
 
 export const Navbar = () => {

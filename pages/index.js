@@ -1,14 +1,20 @@
 
 import { AeroCard } from "../components/AeroCard";
-import { ButtonCTA } from "../components/ButtonCTA";
-import { ButtonNav } from "../components/ButtonNav";
-import { Dropdown } from "../components/Dropdown";
-import { Landing } from "../components/Landing";
-import { Pager } from "../components/Pager";
-import { PagerButton } from "../components/PagerButton";
-import { Section } from "../components/Section";
-import { Toast } from "../components/Toast";
-import { WalkCard } from "../components/WalkCard";
+import { AeroPay } from "../components/AeroPay";
+import { ModuleAeroPay } from "../components/ModuleAeroPay";
+// import { ButtonCTA } from "../components/ButtonCTA";
+// import { ButtonNav } from "../components/ButtonNav";
+// import { Dropdown } from "../components/Dropdown";
+import { useEffect, useState } from "react";
+import { DropdownList } from "../components/dropdown-menu/DropdownList";
+// import { Landing } from "../components/Landing";
+import { Pager } from "../components/pager/Pager";
+import { TechProducts } from "../components/TechProducts";
+import { Up } from "../components/Up";
+// import { PagerButton } from "../components/PagerButton";
+// import { Section } from "../components/Section";
+// import { Toast } from "../components/Toast";
+// import { WalkCard } from "../components/WalkCard";
 
 
 
@@ -72,9 +78,38 @@ const btnChevron = {
 
 
 export default function Home({ products }) {
+
+  // Boton scroll to top
+  const [visibleScroll, setVisibleScroll] = useState(false)
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+
+  useEffect(() => {
+
+    const toggleVisibility = () => {
+      if (window.pageYOffset > 10) {
+        setVisibleScroll(true);
+      } else {
+        setVisibleScroll(false);
+      }
+    };
+
+    window.addEventListener("scroll", toggleVisibility);
+
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+  // Fin Boton scroll to top
+
+
+
   return (
     <div className='min-h-screen bg-slate-300 '>
-      <div className='py-96 ml-96'>
+      <div className='py-96 ml-96 flex justify-around'>
 
         {/* {
           products.map(elem => (
@@ -116,17 +151,38 @@ export default function Home({ products }) {
           />
         } */}
 
-        {/* {
+        {
           <Pager
-            props={btnChevron}
+            actualValue={1}
+            endValue={5}
           />
+        }
+
+
+        {
+          <DropdownList />
+        }
+{/* 
+        {
+          <AeroCard />
         } */}
 
         {
-          <Dropdown />
+          <ModuleAeroPay />
         }
+
+
+
+
       </div>
 
+      {
+        visibleScroll && <Up scrollToTop={scrollToTop}/>
+      }
+
+      {
+        <TechProducts />
+      }
 
     </div>
   )

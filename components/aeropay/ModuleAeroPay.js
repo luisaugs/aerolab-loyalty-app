@@ -1,8 +1,8 @@
 import Image from "next/image"
 import cross from "../public/assets/icons/cross-active.svg"
 import { AeroCard } from './AeroCard'
-import { ButtonCTA } from "./ButtonCTA"
-import { NumberSelector } from './NumberSelector'
+import { ButtonCTA } from "../ButtonCTA"
+import { NumberSelector } from '../NumberSelector'
 
 
 

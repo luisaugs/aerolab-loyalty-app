@@ -10,6 +10,7 @@ module.exports = {
       },
       boxShadow: {
         'soft': '0 2px 8px rgba(0, 0, 0, 0.05)',
+        'top': '0 -5px 8px 10px rgba(0, 0, 0, 0.1)',
       },
       fontSize: {
         'D-TITLE-L1': ['200px', {
