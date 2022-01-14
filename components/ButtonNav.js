@@ -1,4 +1,3 @@
-import { hasBasePath } from "next/dist/server/router"
 import Image from "next/image"
 
 
@@ -6,10 +5,10 @@ import Image from "next/image"
 
 export const ButtonNav = ({data}) => {
 
-    console.log(data)
+    // console.log(data)
 
     return (
-        <button className="select-none flex items-center justify-center py-2 px-4 border">
+        <button className="select-none flex items-center justify-center py-2 px-4 border rounded-2xl lg:hover:shadow-2xl">
             <span className="flex items-center justify-center">
                 <Image 
                     src={data.src}

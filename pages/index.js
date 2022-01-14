@@ -1,6 +1,12 @@
 
+import { AeroCard } from "../components/AeroCard";
 import { ButtonCTA } from "../components/ButtonCTA";
 import { ButtonNav } from "../components/ButtonNav";
+import { Dropdown } from "../components/Dropdown";
+import { Landing } from "../components/Landing";
+import { Pager } from "../components/Pager";
+import { PagerButton } from "../components/PagerButton";
+import { Section } from "../components/Section";
 import { Toast } from "../components/Toast";
 import { WalkCard } from "../components/WalkCard";
 
@@ -51,21 +57,24 @@ const walkOne = [
   },
 ]
 
-const btnTest = 
-  {
-    src:"/assets/propios/spain.svg",
-    w:32,
-    h:32
-  }
+const btn1 = {
+  textPre: "hola",
+  ico: "/assets/icons/aeropay-1-white.svg",
+  textEnd: "100",
+  width: 150,
+  height: 100
+}
+
+const btnChevron = {
+  disabled: false,
+  left: false
+}
 
 
 export default function Home({ products }) {
   return (
-    <div className='min-h-screen bg-slate-500 '>
-      <h1 className='bg-slate-500 text-Aerolab-Dark text-sm font-bold uppercase'>
-        tech zone
-      </h1>
-      <div className=''>
+    <div className='min-h-screen bg-slate-300 '>
+      <div className='py-96 ml-96'>
 
         {/* {
           products.map(elem => (
@@ -84,15 +93,38 @@ export default function Home({ products }) {
             />
           ))
         } */}
-        <div className="mt-80 mx-auto w-6/12">
-        {
-          <ButtonNav 
-            data={btnTest}
+
+        {/* <Landing /> */}
+
+        {/* {
+          <ButtonCTA
+            textPre={btn1.textPre}
+            ico={btn1.ico}
+            textEnd={btn1.textEnd}
+            width={btn1.width}
+            height={btn1.height}
           />
+        } */}
+
+        {/* {
+          <Section />
+        } */}
+
+        {/* {
+          <PagerButton 
+            props={btnChevron}
+          />
+        } */}
+
+        {/* {
+          <Pager
+            props={btnChevron}
+          />
+        } */}
+
+        {
+          <Dropdown />
         }
-        </div>
-
-
       </div>
 
 

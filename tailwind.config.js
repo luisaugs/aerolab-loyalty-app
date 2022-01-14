@@ -77,7 +77,7 @@ module.exports = {
         'Neutral900': '#252f3d',
         'Neutral600': '#7c899c',
         'Neutral500': '#8fa3bf',
-        'Neutral300': '#252f3d',
+        'Neutral300': '#dae4f2',
         'Neutral200': '#e6edf7',
         'Neutral100': '#f5f9ff',
         'Neutral0': '#ffffff',

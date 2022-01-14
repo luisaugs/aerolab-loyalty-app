@@ -5,7 +5,7 @@ export const WalkCard = ({data}) => {
     const { srcPic, srcIco, title, body } = data
 
     return (
-        <div className="select-none w-[532px] border border-[#DAE4F2] rounded-3xl flex flex-col p-3 mx-auto bg-white opacity-90">
+        <div className="select-none w-[532px] border border-[#DAE4F2] rounded-3xl flex flex-col p-3 mx-auto bg-white">
             <div className="border border-[#DAE4F2] border-b-0 rounded-t-xl relative w-[506px] h-[498px] bg-gradient-to-r from-Brand-Default-Primary to-Brand-Default-Secondary">
                 <Image
                     src={srcPic}
