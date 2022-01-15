@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { AeroPay } from './AeroPay'
+import { AeroPay } from '../components/aeropay/AeroPay'
 import logoFull from '../public/assets/icons/aerolab-logo-1.svg'
 import { ButtonNav } from './ButtonNav'
 
@@ -18,7 +18,7 @@ const btnMode =
 
 export const Navbar = () => {
     return (
-        <nav className='bg-white w-4/5 border border-[#DAE4F2] flex items-center justify-between max-w-[970px] fixed top-4 left-1/2 translate-x-[-50%] z-50'>
+        <nav className='bg-white md:w-[95%] xl:w-4/5 border border-[#DAE4F2] flex items-center justify-between max-w-[970px] fixed md:top-0 lg:top-4 left-1/2 translate-x-[-50%] z-50 animate-animaOpacity'>
             <div className='py-5 flex items-center justify-center'>
                 <Image
                     src={logoFull}
@@ -27,7 +27,7 @@ export const Navbar = () => {
                 />
             </div>
             <div className='flex items-center justify-center py-5 '>
-                <span className='pr-2'>
+                {/* <span className='pr-2'>
                     <ButtonNav
                         data={btnLang}
                     />
@@ -36,7 +36,7 @@ export const Navbar = () => {
                     <ButtonNav
                         data={btnMode}
                     />
-                </span>
+                </span> */}
                 <span className=''>
                     <AeroPay />
                 </span>

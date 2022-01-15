@@ -1,5 +1,5 @@
 import Image from "next/image"
-import icon from '../public/assets/icons/aeropay-1-white.svg'
+import icon from '../../public/assets/icons/aeropay-1-white.svg'
 
 
 export const AeroCard = () => {
@@ -17,7 +17,7 @@ export const AeroCard = () => {
                 <span>John Kite</span>
                 <span>07/23</span>
             </div>
-            <div className=" absolute h-24 w-[264px] bg-[url('/assets/images/single-wave-pattern.svg')] bottom-0 left-0">
+            <div className="absolute h-24 w-[264px] bg-[url('/assets/images/single-wave-pattern.svg')] bottom-0 left-0">
             </div>
         </div>
     )

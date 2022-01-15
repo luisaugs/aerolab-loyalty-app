@@ -27,3 +27,14 @@ a {
   font-family: 'Montserrat', sans-serif;
 }
 
+@keyframes animaOpacity {
+  0% {
+      opacity: 0;
+      /* bottom: 0px; */
+  }
+
+  100% {
+      /* bottom: -5px; */
+      opacity: 1;
+  }
+}

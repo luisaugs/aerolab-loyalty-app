@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      animation: {
+        animaOpacity: 'animaOpacity .5s'
+      },
       dropShadow: {
         'soft': '0 2px 8px rgba(0, 0, 0, 0.05)',
       },

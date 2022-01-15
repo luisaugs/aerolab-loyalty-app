@@ -1,5 +1,5 @@
 import Image from "next/image"
-import cross from "../public/assets/icons/cross-active.svg"
+import cross from "../../public/assets/icons/cross-active.svg"
 import { AeroCard } from './AeroCard'
 import { ButtonCTA } from "../ButtonCTA"
 import { NumberSelector } from '../NumberSelector'
@@ -7,14 +7,16 @@ import { NumberSelector } from '../NumberSelector'
 
 
 
-export const ModuleAeroPay = () => {
+export const ModuleAeroPay = ({showMenu}) => {
+
+
     return (
         <div className="w-[312px] bg-white border border-[#DAE4F2] rounded-2xl drop-shadow-soft">
             <div className="px-6 py-4 flex justify-between items-center">
                 <span className="text-Neutral900">
                     Add Balance
                 </span>
-                <button>
+                <button onClick={showMenu} >
                     <span className="flex flex-col justify-center">
                         <Image
                             src={cross}

@@ -10,17 +10,10 @@ export const DropdownList = () => {
 
     const [isOpen, setIsOpen] = useState(false)
     const [option, setOption] = useState("All products")
-    const [disabled, setDisabled] = useState(false)
     const listDrop = useRef()
 
     const showMenu = () => {
         isOpen ? setIsOpen(false) : setIsOpen(true)
-    }
-
-    const handleEsc = (e) => {
-        if (e.keyCode === 27) {
-            setIsOpen(false);
-        }
     }
 
     const checkIfClickedOutside = e => {
@@ -30,7 +23,6 @@ export const DropdownList = () => {
         }
     }
 
-
     useEffect(() => {
         document.addEventListener("mousedown", checkIfClickedOutside)
 
@@ -39,7 +31,11 @@ export const DropdownList = () => {
         }
     }, [isOpen])
 
-
+    const handleEsc = (e) => {
+        if (e.keyCode === 27) {
+            setIsOpen(false);
+        }
+    }
 
     useEffect(() => {
         window.addEventListener('keydown', handleEsc)
@@ -57,9 +53,10 @@ export const DropdownList = () => {
 
 
     // disabled={isOpen ? true : false}
+    // 
 
     return (
-        <div className="text-Neutral600 text-D-TEXT-L1-Default relative w-[200px]">
+        <div className="text-Neutral600 text-D-TEXT-L1-Default relative w-[200px] h-max">
             <button className={`w-full py-2 px-4 border rounded-xl flex items-center justify-between lg:hover:bg-Neutral100 ${isOpen ? "pointer-events-none" : ""}`} onClick={showMenu} >
                 <span className="pr-4 flex-grow ">{option}</span>
                 <span className={`flex items-center justify-center ${isOpen ? "rotate-[270deg]" : "rotate-90"} duration-500`}>
@@ -74,7 +71,7 @@ export const DropdownList = () => {
             {
                 isOpen &&
 
-                <div className="absolute border rounded-xl w-full top-[110%] h-auto flex flex-col overflow-hidden" ref={listDrop}>
+                <div className="absolute border rounded-xl w-full top-[110%] h-auto flex flex-col overflow-hidden animate-animaOpacity" ref={listDrop}>
                     <ButtonDropdown text={"All Products"} showMenu={showMenu} getOption={getOption} />
                     <ButtonDropdown text={"Computers"} showMenu={showMenu} getOption={getOption} />
                     <ButtonDropdown text={"Calculators"} showMenu={showMenu} getOption={getOption} />

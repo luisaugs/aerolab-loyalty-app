@@ -1,18 +1,15 @@
-
-import { AeroCard } from "../components/AeroCard";
-import { AeroPay } from "../components/AeroPay";
-import { ModuleAeroPay } from "../components/ModuleAeroPay";
+import { ModuleAeroPay } from "../components/aeropay/ModuleAeroPay";
 // import { ButtonCTA } from "../components/ButtonCTA";
 // import { ButtonNav } from "../components/ButtonNav";
 // import { Dropdown } from "../components/Dropdown";
 import { useEffect, useState } from "react";
 import { DropdownList } from "../components/dropdown-menu/DropdownList";
-// import { Landing } from "../components/Landing";
+import { Landing } from "../components/Landing";
 import { Pager } from "../components/pager/Pager";
 import { TechProducts } from "../components/TechProducts";
 import { Up } from "../components/Up";
 // import { PagerButton } from "../components/PagerButton";
-// import { Section } from "../components/Section";
+import { Section } from "../components/Section";
 // import { Toast } from "../components/Toast";
 // import { WalkCard } from "../components/WalkCard";
 
@@ -92,7 +89,7 @@ export default function Home({ products }) {
   useEffect(() => {
 
     const toggleVisibility = () => {
-      if (window.pageYOffset > 10) {
+      if (window.pageYOffset > 50) {
         setVisibleScroll(true);
       } else {
         setVisibleScroll(false);
@@ -102,14 +99,24 @@ export default function Home({ products }) {
     window.addEventListener("scroll", toggleVisibility);
 
     return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
+  }, [visibleScroll]);
   // Fin Boton scroll to top
 
 
 
   return (
-    <div className='min-h-screen bg-slate-300 '>
-      <div className='py-96 ml-96 flex justify-around'>
+    <div className='min-h-screen bg-Neutral100 '>
+
+      <div>
+        <Landing />
+      </div>
+
+      <div className="pt-40 bg-Neutral100">
+        {/* <Section /> */}
+      </div>
+
+
+      <div className='flex justify-around'>
 
         {/* {
           products.map(elem => (
@@ -129,7 +136,7 @@ export default function Home({ products }) {
           ))
         } */}
 
-        {/* <Landing /> */}
+
 
         {/* {
           <ButtonCTA
@@ -151,25 +158,25 @@ export default function Home({ products }) {
           />
         } */}
 
-        {
+        {/* {
           <Pager
             actualValue={1}
             endValue={5}
           />
-        }
+        } */}
 
 
-        {
+        {/* {
           <DropdownList />
-        }
-{/* 
+        } */}
+        {/* 
         {
           <AeroCard />
         } */}
 
-        {
+        {/* {
           <ModuleAeroPay />
-        }
+        } */}
 
 
 
@@ -177,7 +184,7 @@ export default function Home({ products }) {
       </div>
 
       {
-        visibleScroll && <Up scrollToTop={scrollToTop}/>
+        visibleScroll && <Up scrollToTop={scrollToTop} />
       }
 
       {
