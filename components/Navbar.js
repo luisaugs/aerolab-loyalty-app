@@ -16,17 +16,23 @@ const btnMode =
     h: 24
 }
 
+// TW classes
+const navbar_class = "bg-white w-full md:w-[95%] dsk:top-4 flex items-center justify-between max-w-[970px] fixed top-0 left-1/2 translate-x-[-50%] z-50 animate-animaOpacity"
+const logo_class = "py-5 flex items-center justify-center"
+const btns_class = "flex items-center justify-center py-5"
+
+
 export const Navbar = () => {
     return (
-        <nav className='bg-white md:w-[95%] xl:w-4/5 border border-[#DAE4F2] flex items-center justify-between max-w-[970px] fixed md:top-0 lg:top-4 left-1/2 translate-x-[-50%] z-50 animate-animaOpacity'>
-            <div className='py-5 flex items-center justify-center'>
+        <nav className={navbar_class}>
+            <div className={logo_class}>
                 <Image
                     src={logoFull}
                     width={126}
                     height={48}
                 />
             </div>
-            <div className='flex items-center justify-center py-5 '>
+            <div className={btns_class}>
                 {/* <span className='pr-2'>
                     <ButtonNav
                         data={btnLang}

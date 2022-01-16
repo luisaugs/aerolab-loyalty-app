@@ -2,13 +2,17 @@ import Image from "next/image"
 import { useState } from "react"
 
 
+const ftr_class = "select-none flex items-center justify-center border-t border-t-Neutral500 shadow-top"
+const div_class = "px-2 py-4"
+
+
 export const Footer = () => {
 
     const [isHover, setIsHover] = useState("/assets/icons/github-default.svg")
       
     return (
-        <footer className="select-none flex items-center justify-center border-t border-t-Neutral500 shadow-top">
-            <div className="px-2 py-4">
+        <footer className={ftr_class}>
+            <div className={div_class}>
                 <Image
                     src={isHover}
                     width={32}
@@ -17,7 +21,7 @@ export const Footer = () => {
                     onMouseLeave={() => setIsHover("/assets/icons/github-default.svg")}
                 />
             </div>
-            <div className="px-2 py-4">
+            <div className={div_class}>
                 <a href="https://github.com/luisaugs/aerolab-loyalty-app" target="_blank" className="text-D-TEXT-L1-Default text-Neutral600">View this repository</a>
             </div>
         </footer>

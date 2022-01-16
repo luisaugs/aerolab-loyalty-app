@@ -5,6 +5,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: { 
+        'tbt': '1010px',
+        // => @media (min-width: 1010px) { ... }
+        'dsk': '1900px',
+        // => @media (min-width: 1900px) { ... }
+      },
       animation: {
         animaOpacity: 'animaOpacity .5s'
       },

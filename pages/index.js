@@ -1,15 +1,17 @@
+import { useEffect, useState } from "react";
 import { ModuleAeroPay } from "../components/aeropay/ModuleAeroPay";
 // import { ButtonCTA } from "../components/ButtonCTA";
 // import { ButtonNav } from "../components/ButtonNav";
 // import { Dropdown } from "../components/Dropdown";
-import { useEffect, useState } from "react";
 import { DropdownList } from "../components/dropdown-menu/DropdownList";
 import { Landing } from "../components/Landing";
 import { Pager } from "../components/pager/Pager";
 import { TechProducts } from "../components/TechProducts";
 import { Up } from "../components/Up";
 // import { PagerButton } from "../components/PagerButton";
-import { Section } from "../components/Section";
+import { Section } from "../components/section/Section";
+import { WalkCard } from "../components/section/WalkCard";
+import { Toast } from "../components/Toast"
 // import { Toast } from "../components/Toast";
 // import { WalkCard } from "../components/WalkCard";
 
@@ -60,6 +62,15 @@ const walkOne = [
   },
 ]
 
+
+const dataWalk = {
+  id: 1,
+  srcPic: "/assets/images/walkthroug-1-desktop.png",
+  srcIco: "/assets/icons/walkthrough-1.svg",
+  title: "1-browse",
+  body: "Browse our  catalog with more than 20 tech products"
+}
+
 const btn1 = {
   textPre: "hola",
   ico: "/assets/icons/aeropay-1-white.svg",
@@ -73,6 +84,10 @@ const btnChevron = {
   left: false
 }
 
+const testToast = {
+  product: "Lala",
+  failOp: false
+}
 
 export default function Home({ products }) {
 
@@ -105,91 +120,30 @@ export default function Home({ products }) {
 
 
   return (
-    <div className='min-h-screen bg-Neutral100 '>
+    <div className='min-h-screen bg-Neutral100  '>
 
       <div>
         <Landing />
       </div>
 
-      <div className="pt-40 bg-Neutral100">
-        {/* <Section /> */}
-      </div>
 
+      <div className="mb-80">
 
-      <div className='flex justify-around'>
-
-        {/* {
-          products.map(elem => (
-            <ProductCard
-              key={elem._id}
-              data={elem}
-            />
-          ))
-        } */}
-
-        {/* {
-          walkOne.map(elem => (
-            <WalkCard
-              key={elem.id}
-              data={elem}
-            />
-          ))
-        } */}
-
-
-
-        {/* {
-          <ButtonCTA
-            textPre={btn1.textPre}
-            ico={btn1.ico}
-            textEnd={btn1.textEnd}
-            width={btn1.width}
-            height={btn1.height}
-          />
-        } */}
-
-        {/* {
-          <Section />
-        } */}
-
-        {/* {
-          <PagerButton 
-            props={btnChevron}
-          />
-        } */}
-
-        {/* {
-          <Pager
-            actualValue={1}
-            endValue={5}
-          />
-        } */}
-
-
-        {/* {
-          <DropdownList />
-        } */}
-        {/* 
-        {
-          <AeroCard />
-        } */}
-
-        {/* {
-          <ModuleAeroPay />
-        } */}
-
-
-
+        <Section />
 
       </div>
 
-      {
+
+
+
+
+      {/* {
         visibleScroll && <Up scrollToTop={scrollToTop} />
-      }
+      } */}
 
-      {
+      {/* {
         <TechProducts />
-      }
+      } */}
 
     </div>
   )
