@@ -23,8 +23,35 @@ a {
   box-sizing: border-box;
 } */
 
+
+
 * {
   font-family: 'Montserrat', sans-serif;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+  height: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+border-radius: 100vh;
+background: #fff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #cbd5e0;
+border-radius: 100vh;
+border: 1px solid #080c14;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #cbd5e080;
 }
 
 @keyframes animaOpacity {
@@ -37,4 +64,12 @@ a {
       /* bottom: -5px; */
       opacity: 1;
   }
+}
+
+@layer utilities {
+
+  .grid-col4 {
+    grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
+  }
+  
 }

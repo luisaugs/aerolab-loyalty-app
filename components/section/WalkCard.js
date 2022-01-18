@@ -13,7 +13,6 @@ const par_class = "pt-3 pb-6 text-M-TEXT-L1-Default text-Neutral600 dsk:text-D-T
 
 
 
-
 export const WalkCard = ({ data }) => {
 
     const { srcPic, srcIco, title, body } = data
@@ -35,6 +34,7 @@ export const WalkCard = ({ data }) => {
                 <Image
                     src={srcPic}
                     layout="fill"
+                    objectFit='contain'
                 />
             </div>
             <div className={contInf_class}>
@@ -55,7 +55,6 @@ export const WalkCard = ({ data }) => {
                                     width={26}
                                     height={26}
                                 />
-
                         }
                     </span>
                     <span className={spanHeaderInf_class}>{title}</span>

@@ -18,7 +18,7 @@ const btnLanding = {
 
 export const Landing = () => {
     return (
-        <section className="relative pb-80 select-none flex flex-col dsk:flex-row max-w-[1920px] mx-auto w-[100%] dsk:pb-52 bg-white border-2 border-red-600">
+        <section className="relative pb-80 select-none flex flex-col dsk:flex-row max-w-[1920px] mx-auto w-[100%] dsk:pb-52 bg-white">
 
             {/* TEXT */}
             <div className="w-full max-w-[289px] mx-auto dsk:max-w-[50%] pt-[168px] dsk:w-3/6 dsk:pt-56">
@@ -49,10 +49,12 @@ export const Landing = () => {
 
 
             {/* IMAGE AND BG */}
-            <div className="border border-emerald-600 absolute  sm:w-[500px] sm:h-[500px] -bottom-40 z-0 md:w-[580px] md:h-[518px] left-1/2 translate-x-[-50%] dsk:left-0 dsk:translate-x-0 dsk:relative dsk:bottom-0 dsk:h-auto dsk:z-10 dsk:w-3/6 dsk:pt-11 dsk:px-32">
+            <div className="border border-emerald-600 absolute -bottom-40 z-0 w-[335px] h-[518px] sm:w-[580px] sm:h-[518px] left-1/2 translate-x-[-50%] dsk:left-0 dsk:translate-x-0 dsk:relative dsk:bottom-0 dsk:h-auto dsk:z-10 dsk:w-3/6 dsk:pt-11 dsk:px-32">
                 <Image className="relative z-10"
                     src={heroDesk}
-                    layout="fill"
+                    // layout="fill"
+                    // layout="fixed"
+                    objectFit='contain'
                 />
                 <div
                     className="hidden dsk:block dsk:absolute w-[60%] h-[70%] bottom-0 bg-gradient-to-r from-Brand-Default-Primary/50 to-Brand-Default-Secondary/50 z-[0] rounded-[12.5%] left-1/2 translate-x-[-50%] pr-28 ">

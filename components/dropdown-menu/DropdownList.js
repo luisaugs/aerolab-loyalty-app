@@ -56,8 +56,8 @@ export const DropdownList = () => {
     // 
 
     return (
-        <div className="text-Neutral600 text-D-TEXT-L1-Default relative w-[200px] h-max">
-            <button className={`w-full py-2 px-4 border rounded-xl flex items-center justify-between lg:hover:bg-Neutral100 ${isOpen ? "pointer-events-none" : ""}`} onClick={showMenu} >
+        <div className="text-Neutral600 text-D-TEXT-L1-Default relative w-[335px] h-max">
+            <button className={`bg-white w-full py-2 px-4 border rounded-xl flex items-center justify-between lg:hover:bg-Neutral200 ${isOpen ? "pointer-events-none" : ""}`} onClick={showMenu} >
                 <span className="pr-4 flex-grow ">{option}</span>
                 <span className={`flex items-center justify-center ${isOpen ? "rotate-[270deg]" : "rotate-90"} duration-500`}>
                     <Image
@@ -71,7 +71,7 @@ export const DropdownList = () => {
             {
                 isOpen &&
 
-                <div className="absolute border rounded-xl w-full top-[110%] h-auto flex flex-col overflow-hidden animate-animaOpacity" ref={listDrop}>
+                <div className="absolute border rounded-xl w-full top-[110%] h-auto flex flex-col overflow-hidden animate-animaOpacity lg:hover:bg-Neutral100" ref={listDrop}>
                     <ButtonDropdown text={"All Products"} showMenu={showMenu} getOption={getOption} />
                     <ButtonDropdown text={"Computers"} showMenu={showMenu} getOption={getOption} />
                     <ButtonDropdown text={"Calculators"} showMenu={showMenu} getOption={getOption} />

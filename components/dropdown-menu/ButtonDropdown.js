@@ -11,7 +11,7 @@ export const ButtonDropdown = ({ text, showMenu, getOption }) => {
     }
 
     return (
-        <button className="w-full py-2 lg:hover:bg-Neutral100" onClick={handleClick}>
+        <button className="bg-white w-full py-2 lg:hover:bg-Neutral200" onClick={handleClick}>
             {
                 text
             }

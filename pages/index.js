@@ -12,31 +12,36 @@ import { Up } from "../components/Up";
 import { Section } from "../components/section/Section";
 import { WalkCard } from "../components/section/WalkCard";
 import { Toast } from "../components/Toast"
+import { Selector } from "../components/selector/Selector";
+import { NumberSelector } from "../components/NumberSelector";
+import { PrimaryCard } from "../components/products/PrimaryCard";
+import { ProductCard } from "../components/products/ProductCard";
+import { Skeleton } from "../components/products/Skeleton";
 // import { Toast } from "../components/Toast";
 // import { WalkCard } from "../components/WalkCard";
 
 
 
-export const getStaticProps = async () => {
+// export const getStaticProps = async () => {
 
-  const url = 'https://coding-challenge-api.aerolab.co/products';
-  const token = process.env.TOKEN
-  const res = await fetch(url, {
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + token
-    }
-  })
-  const data = await res.json()
-  // console.log(data)
+//   const url = 'https://coding-challenge-api.aerolab.co/products';
+//   const token = process.env.TOKEN
+//   const res = await fetch(url, {
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'Authorization': 'Bearer ' + token
+//     }
+//   })
+//   const data = await res.json()
+//   // console.log(data)
 
-  return {
-    props: {
-      products: data
-    }
-  }
+//   return {
+//     props: {
+//       products: data
+//     }
+//   }
 
-}
+// }
 
 const walkOne = [
   {
@@ -65,8 +70,8 @@ const walkOne = [
 
 const dataWalk = {
   id: 1,
-  srcPic: "/assets/images/walkthroug-1-desktop.png",
-  srcIco: "/assets/icons/walkthrough-1.svg",
+  srcPic: "/assets/images/walkthroug-3-desktop.png",
+  srcIco: "/assets/icons/walkthrough-2.svg",
   title: "1-browse",
   body: "Browse our  catalog with more than 20 tech products"
 }
@@ -88,6 +93,14 @@ const testToast = {
   product: "Lala",
   failOp: false
 }
+
+const lachota = {
+  img: "/assets/propios/mouse.png",
+  name: "mouse gamer",
+  category: "pc"
+}
+
+// console.log(typeof lachota, "🚲🚲🚲🚲🚲🚲")
 
 export default function Home({ products }) {
 
@@ -119,10 +132,11 @@ export default function Home({ products }) {
 
 
 
-  return (
-    <div className='min-h-screen bg-Neutral100  '>
 
-      <div>
+  return (
+    <div className='min-h-screen bg-green-500  '>
+
+      {/* <div>
         <Landing />
       </div>
 
@@ -134,16 +148,47 @@ export default function Home({ products }) {
       </div>
 
 
+      <div className="my-80">
+
+        <WalkCard data={dataWalk}/>
+
+      </div> */}
+
+      {/* <div className="bg-Green-Default py-48 flex justify-center"> */}
+
+        {/* <PrimaryCard img={lachota.img} name={lachota.name} category={lachota.category} /> */}
+
+        {/* <ProductCard img={lachota.img} name={lachota.name} category={lachota.category} /> */}
+
+
+        {/* {
+          <ModuleAeroPay />
+
+        } */}
+
+        {/* {
+          <Selector />
+        } 
+ 
+        {
+          <NumberSelector />
+        }  */}
+
+      {/* <Skeleton />   */}
+      {/* </div> */}
 
 
 
       {/* {
         visibleScroll && <Up scrollToTop={scrollToTop} />
       } */}
+      <div className="mx-auto">
 
-      {/* {
+      {
         <TechProducts />
-      } */}
+      }
+      </div>
+
 
     </div>
   )

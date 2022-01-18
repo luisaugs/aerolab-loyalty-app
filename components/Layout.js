@@ -7,7 +7,7 @@ export const Layout = ({ children }) => {
     const [showNav, setShowNav] = useState(true)
 
     const toggleVisibility = () => {
-        if (window.pageYOffset > 105) {
+        if (window.pageYOffset > 10) {
             setShowNav(false);
         } else {
             setShowNav(true);
