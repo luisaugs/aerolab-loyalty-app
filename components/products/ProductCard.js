@@ -17,6 +17,8 @@ const btnCTA_class = "w-full pt-4"
 
 export const ProductCard = (data) => {
     
+    // console.log(data)
+
     return (
         <div className={mainDiv_class}>
             <PrimaryCard

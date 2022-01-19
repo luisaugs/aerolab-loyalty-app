@@ -17,9 +17,11 @@ import { NumberSelector } from "../components/NumberSelector";
 import { PrimaryCard } from "../components/products/PrimaryCard";
 import { ProductCard } from "../components/products/ProductCard";
 import { Skeleton } from "../components/products/Skeleton";
+
 // import { Toast } from "../components/Toast";
 // import { WalkCard } from "../components/WalkCard";
-
+import { getUserInfo, getUserHistory, getProducts } from '../logic/api'
+import { data } from "autoprefixer";
 
 
 // export const getStaticProps = async () => {
@@ -42,6 +44,26 @@ import { Skeleton } from "../components/products/Skeleton";
 //   }
 
 // }
+
+
+export const getStaticProps = async () => {
+
+  try {
+    const [dataProducts, dataUserInfo, dataHistory] = await Promise.all([getProducts(), getUserInfo(), getUserHistory()])
+    // console.log(dataProducts, "🍕🍕🍕🍕🍕🍕🍕🍕",dataUserInfo, "🍑🍑🍑🍑🍑🍑🍑🍑🍑", dataHistory, "😪😪😪😪😪😪😪")
+
+    return {
+      props: {
+        products: dataProducts,
+        userInfo: dataUserInfo
+      }
+    }
+
+  } catch (error) {
+    console.log("Error fetching data", error)
+  }
+
+}
 
 const walkOne = [
   {
@@ -100,9 +122,9 @@ const lachota = {
   category: "pc"
 }
 
-// console.log(typeof lachota, "🚲🚲🚲🚲🚲🚲")
 
-export default function Home({ products }) {
+
+export default function Home({ products, userInfo }) {
 
   // Boton scroll to top
   const [visibleScroll, setVisibleScroll] = useState(false)
@@ -128,13 +150,13 @@ export default function Home({ products }) {
 
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, [visibleScroll]);
-  // Fin Boton scroll to top
+  // End Boton scroll to top
 
 
 
 
   return (
-    <div className='min-h-screen bg-green-500  '>
+    <div className='min-h-screen bg-gray-800  '>
 
       {/* <div>
         <Landing />
@@ -156,17 +178,17 @@ export default function Home({ products }) {
 
       {/* <div className="bg-Green-Default py-48 flex justify-center"> */}
 
-        {/* <PrimaryCard img={lachota.img} name={lachota.name} category={lachota.category} /> */}
+      {/* <PrimaryCard img={lachota.img} name={lachota.name} category={lachota.category} /> */}
 
-        {/* <ProductCard img={lachota.img} name={lachota.name} category={lachota.category} /> */}
+      {/* <ProductCard img={lachota.img} name={lachota.name} category={lachota.category} /> */}
 
 
-        {/* {
+      {/* {
           <ModuleAeroPay />
 
         } */}
 
-        {/* {
+      {/* {
           <Selector />
         } 
  
@@ -184,9 +206,11 @@ export default function Home({ products }) {
       } */}
       <div className="mx-auto">
 
-      {
-        <TechProducts />
-      }
+        {
+          <TechProducts 
+            products={products}
+          />
+        }
       </div>
 
 
