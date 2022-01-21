@@ -2,6 +2,9 @@ import { useEffect, useState } from "react"
 import { Footer } from "./Footer"
 import { Navbar } from "./Navbar"
 
+
+
+
 export const Layout = ({ children }) => {
 
     const [showNav, setShowNav] = useState(true)
@@ -11,7 +14,7 @@ export const Layout = ({ children }) => {
             setShowNav(false);
         } else {
             setShowNav(true);
-        }  
+        }
     };
 
     useEffect(() => {
@@ -20,8 +23,8 @@ export const Layout = ({ children }) => {
         return () => window.removeEventListener("scroll", toggleVisibility)
 
     }, [showNav])
-   
-    
+
+
     return (
         <div>
             {showNav &&

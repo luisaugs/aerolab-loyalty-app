@@ -2,14 +2,12 @@ import Image from 'next/image'
 // import { useEffect, useState } from 'react'
 
 
-export const ButtonCTA = ({ data }) => {
+export const ButtonCTA = ( data ) => {
     // export const ButtonCTA = ({ textPre, ico, textEnd, width, height }) => {
 
 
-
-
     return (
-        <button className="max-w-[335px] w-full select-none bg-gradient-to-r from-Brand-Default-Primary to-Brand-Default-Secondary rounded-[16px] text-white lg:hover:bg-gradient-to-r lg:hover:from-Brand-Default-Primary-Hover lg:hover:to-Brand-Default-Secondary-Hover flex justify-center items-center shadow-soft">
+        <button className="max-w-[335px] w-full select-none bg-gradient-to-r from-Brand-Default-Primary to-Brand-Default-Secondary rounded-[16px] text-white lg:hover:bg-gradient-to-r lg:hover:from-Brand-Default-Primary-Hover lg:hover:to-Brand-Default-Secondary-Hover flex justify-center items-center shadow-soft" onClick={data.handleClick}>
 
             <span className='text-M-TEXT-L1-Default px-2 py-4'>
                 {

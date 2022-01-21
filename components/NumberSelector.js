@@ -7,26 +7,21 @@ const bg_actived = "select-none w-fit rounded-xl flex justify-center px-4 py-1 c
 const bg_noActived = "bg-[#E5F0FF] select-none w-fit rounded-xl flex justify-center px-4 py-1 cursor-pointer mx-1"
 
 
-export const NumberSelector = ({ value, active }) => {
+export const NumberSelector = ({ value, active, handleClick }) => {
 
     const [toggleBtn, setToggleBtn] = useState(false)
-    const [activeBtn, setActiveBtn] = useState(false)
 
-
-
-    const toggleAct = () => {
-        active ? setActiveBtn(false) : setActiveBtn(true)
-    }
-
-    useEffect(()=>{
-
-    })
+    useEffect(() => {
+        active ? setToggleBtn(true) :setToggleBtn(false)
+    }, [active])
 
     return (
-        <button className={toggleBtn ? bg_actived : bg_noActived} onClick={() => setToggleBtn(!toggleBtn)}>
-            <span className={toggleBtn ? text_actived : text_noActived}>
-                {!value && 1000000}
+        <button className={toggleBtn ? bg_actived : bg_noActived}>
+            <span className={toggleBtn ? text_actived : text_noActived} onClick={()=>handleClick()}>
+                {value ? value : 10000}
             </span>
         </button>
     )
 }
+
+// onClick={() => setToggleBtn(!toggleBtn)}

@@ -28,7 +28,9 @@ export const ProductCard = (data) => {
             />
             <div className={btnCTA_class}>
                 <ButtonCTA
-                    data={btn1}
+                    textPre={btn1.textPre}
+                    ico={btn1.ico}
+                    textEnd={btn1.textEnd}
                 />
             </div>
         </div>

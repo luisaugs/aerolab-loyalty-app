@@ -3,7 +3,7 @@ import Image from "next/image"
 
 
 
-export const ButtonNav = ({data}) => {
+export const ButtonNav = (data) => {
 
     // console.log(data)
 

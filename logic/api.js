@@ -1,6 +1,7 @@
 //url and token
 const baseUrl = 'https://coding-challenge-api.aerolab.co'
-const token = process.env.TOKEN
+// const token = process.env.TOKEN
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWRkODE3MjRhOTVlZjAwMWExMWQ0Y2YiLCJpYXQiOjE2NDE5MDY1NDZ9.3XCGmQFzXvt_1cMYmIk1UNiEJWYcR4UuGydL21AJ68s"
 
 
 // user

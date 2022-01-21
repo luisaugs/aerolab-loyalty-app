@@ -49,13 +49,15 @@ import { data } from "autoprefixer";
 export const getStaticProps = async () => {
 
   try {
-    const [dataProducts, dataUserInfo, dataHistory] = await Promise.all([getProducts(), getUserInfo(), getUserHistory()])
+    // const [dataProducts, dataUserInfo, dataHistory] = await Promise.all([getProducts(), getUserInfo(), getUserHistory()])
     // console.log(dataProducts, "🍕🍕🍕🍕🍕🍕🍕🍕",dataUserInfo, "🍑🍑🍑🍑🍑🍑🍑🍑🍑", dataHistory, "😪😪😪😪😪😪😪")
+    const dataProducts = await getProducts()
+    // console.log(dataProducts)
 
     return {
       props: {
         products: dataProducts,
-        userInfo: dataUserInfo
+        // userInfo: dataUserInfo
       }
     }
 
@@ -64,6 +66,11 @@ export const getStaticProps = async () => {
   }
 
 }
+
+
+
+
+
 
 const walkOne = [
   {
@@ -88,7 +95,6 @@ const walkOne = [
     body: "Lalalalal lalalalal lalalalla llala"
   },
 ]
-
 
 const dataWalk = {
   id: 1,
@@ -124,7 +130,7 @@ const lachota = {
 
 
 
-export default function Home({ products, userInfo }) {
+export default function Home({ products }) {
 
   // Boton scroll to top
   const [visibleScroll, setVisibleScroll] = useState(false)

@@ -7,7 +7,7 @@ import { ModuleAeroPay } from "./ModuleAeroPay"
 
 
 
-export const AeroPay = (value) => {
+export const AeroPay = ({user, points}) => {
 
     const [isOpen, setIsOpen] = useState(false)
 
@@ -32,8 +32,6 @@ export const AeroPay = (value) => {
 
 
 
-
-
     return (
         <div className="relative">
             <button 
@@ -48,7 +46,7 @@ export const AeroPay = (value) => {
                             height={24}
                         />
                     </span>
-                    <span className="text-Neutral600">1000</span>
+                    <span className="text-Neutral600">{points}</span>
                 </span>
 
                 <span className= {`${isOpen ? "rotate-[270deg]" : "rotate-90"} duration-500 flex justify-center items-center`}>
@@ -64,8 +62,8 @@ export const AeroPay = (value) => {
             {
                 isOpen &&
 
-                <div className="absolute right-0 top-[105%] animate-animaOpacity">
-                    <ModuleAeroPay showMenu={showMenu}/>
+                <div className="absolute right-0 top-[105%] animate-animaOpacity z-[20]">
+                    <ModuleAeroPay showMenu={showMenu} user={user}/>
                 </div>
             }
 

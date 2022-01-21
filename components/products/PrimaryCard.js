@@ -26,7 +26,7 @@ export const PrimaryCard = ({ img, name, category }) => {
                 <p className="uppercase text-Neutral600 text-D-TEXT-L2-All w-full pb-6 px-6">{category}</p>
             </div>
             {/* Animate blur hovering */}
-            <div className={`absolute p-[2px] w-[326px] h-[436px] bg-gradient-to-r from-Brand-Default-Primary to-Brand-Default-Secondary rounded-2xl left-1/2 translate-x-[-50%] top-1/2 translate-y-[-50%] animate-animaOpacity blur ${border && 'hidden'}`}></div>
+            {/* <div className={`absolute p-[2px] w-[326px] h-[436px] bg-gradient-to-r from-Brand-Default-Primary to-Brand-Default-Secondary rounded-2xl left-1/2 translate-x-[-50%] top-1/2 translate-y-[-50%] animate-animaOpacity blur ${border && 'hidden'}`}></div> */}
         </div>
 
     )
