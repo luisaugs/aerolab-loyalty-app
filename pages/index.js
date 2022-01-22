@@ -164,23 +164,18 @@ export default function Home({ products }) {
   return (
     <div className='min-h-screen bg-gray-800  '>
 
-      {/* <div>
+       {/* <div>
         <Landing />
-      </div>
+      </div> */}
 
-
-      <div className="mb-80">
+      
+      <div className="my-96">
 
         <Section />
 
       </div>
 
 
-      <div className="my-80">
-
-        <WalkCard data={dataWalk}/>
-
-      </div> */}
 
       {/* <div className="bg-Green-Default py-48 flex justify-center"> */}
 
@@ -212,11 +207,11 @@ export default function Home({ products }) {
       } */}
       <div className="mx-auto">
 
-        {
+        {/* {
           <TechProducts 
             products={products}
           />
-        }
+        } */}
       </div>
 
 

@@ -1,55 +1,48 @@
 import Image from 'next/image'
-// import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 
-export const ButtonCTA = ( data ) => {
-    // export const ButtonCTA = ({ textPre, ico, textEnd, width, height }) => {
+// TW class
+const btnActive_class = "max-w-[335px] w-full select-none bg-gradient-to-r from-Brand-Default-Primary to-Brand-Default-Secondary rounded-[16px] text-white lg:hover:bg-gradient-to-r lg:hover:from-Brand-Default-Primary-Hover lg:hover:to-Brand-Default-Secondary-Hover flex justify-center items-center shadow-soft"
+const btnDisabled_class = "max-w-[335px] w-full select-none bg-gradient-to-r from-Brand-Default-Primary/50 to-Brand-Default-Secondary/50 rounded-[16px] text-white flex justify-center items-center shadow-soft"
+const textPre_class = "text-M-TEXT-L1-Default px-2 py-4"
+const ico_class = "flex flex-col justify-center items-center py-4"
+const textEnd_class = "text-M-TEXT-L1-Default px-2 p-4"
+
+
+
+
+export const ButtonCTA = ({ textPre, ico, textEnd, handleClick, disabled, textDisabled }) => {
+
+    const [disableBtn, setDisableBtn] = useState(false)
+
+    useEffect(() => {
+        setDisableBtn(disabled)
+    }, [disabled])
 
 
     return (
-        <button className="max-w-[335px] w-full select-none bg-gradient-to-r from-Brand-Default-Primary to-Brand-Default-Secondary rounded-[16px] text-white lg:hover:bg-gradient-to-r lg:hover:from-Brand-Default-Primary-Hover lg:hover:to-Brand-Default-Secondary-Hover flex justify-center items-center shadow-soft" onClick={data.handleClick}>
-
-            <span className='text-M-TEXT-L1-Default px-2 py-4'>
+        <button className={disableBtn ? btnDisabled_class : btnActive_class} onClick={handleClick} disabled={disableBtn}>
+            <span className={textPre_class}>
                 {
-                    data.textPre
+                    !disableBtn && textPre
                 }
             </span>
-            <span className="flex flex-col justify-center items-center py-4">
+            <span className={ico_class}>
                 {
-                    data.ico &&
+                    ico &&
                     <Image
-                        src={data.ico}
+                        src={ico}
                         width={24}
                         height={24}
                     />
                 }
             </span>
-            <span className='text-M-TEXT-L1-Default px-2 p-4'>
+            <span className={textEnd_class}>
                 {
-                    data.textEnd
+                    disableBtn ? textDisabled : textEnd
                 }
             </span>
         </button>
     )
 }
-
-{/* <button className={`max-w-xs  w-[${width}px] h-[${height}px] select-none bg-gradient-to-r from-Brand-Default-Primary to-Brand-Default-Secondary rounded-[16px] text-white lg:hover:bg-gradient-to-r lg:hover:from-Brand-Default-Primary-Hover lg:hover:to-Brand-Default-Secondary-Hover flex justify-center items-center shadow-soft`}>
-
-<span className='text-M-TEXT-L1-Default'>
-    {
-        textPre
-    }
-</span>
-<span className="flex flex-col justify-center items-center ">
-    <Image
-        src={ico}
-        width={24}
-        height={24}
-    />
-</span>
-<span className='text-M-TEXT-L1-Default'>
-    {
-        textEnd 
-    }
-</span>
-</button> */}

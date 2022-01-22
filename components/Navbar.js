@@ -1,10 +1,6 @@
 import Image from 'next/image'
-import { getUserInfo, addPoints } from '../logic/api'
 import { AeroPay } from '../components/aeropay/AeroPay'
 import logoFull from '../public/assets/icons/aerolab-logo-1.svg'
-import { useEffect, useState } from 'react'
-
-
 
 
 // TW classes
@@ -15,35 +11,19 @@ const logo_class = "py-5 flex items-center justify-center"
 
 export const Navbar = () => {
 
-    const [user, setUser] = useState("Batman")
-    const [points, setPoints] = useState("---")
-
-
-
-    useEffect(() => {
-
-        const dataUserInfo = async () => {
-            const data = await getUserInfo()    
-            setUser(data.name)
-            setPoints(data.points)
-        }
-        dataUserInfo()
-
-    }, [])
-
     return (
         <nav className={navbar_class}>
             <div className={logo_class}>
-                <Image
-                    src={logoFull}
-                    width={126}
-                    height={48}
-                />
+                <a href="https://aerolab.co" target="_blank">
+                    <Image
+                        src={logoFull}
+                        width={126}
+                        height={48}
+                    />
+                </a>
             </div>
             <div>
-                <span>
-                    <AeroPay user={user} points={points}/>
-                </span>
+                <AeroPay />
             </div>
         </nav>
     )
