@@ -102,7 +102,7 @@ export const ModuleAeroPay = ({ showMenu }) => {
             setPoints(dataPoints['New Points'])
             setTimeout(() => {
                 setReqPoints(false)
-            }, 1500)
+            }, 1000)
         } catch (error) {
             console.log("Error adding points...", error)
         }
@@ -164,7 +164,7 @@ export const ModuleAeroPay = ({ showMenu }) => {
                                 textEnd={data.ModuleAeroPay.btn.textEnd}
                                 handleClick={handleBtn}
                                 disabled={reqPoints}
-                                textDisabled={data.ModuleAeroPay.btn.textDisabled}
+                                textEndDisabled={data.ModuleAeroPay.btn.textEndDisabled}
                             />
                         </span>
                     </div>

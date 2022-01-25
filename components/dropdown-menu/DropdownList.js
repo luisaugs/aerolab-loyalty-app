@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
+import { useGlobal } from "../../context/GlobalContext"
 import chevron from "../../public/assets/icons/chevron-active.svg"
 import { ButtonDropdown } from "./ButtonDropdown"
 
@@ -8,6 +9,7 @@ import { ButtonDropdown } from "./ButtonDropdown"
 
 export const DropdownList = () => {
 
+    const { data } = useGlobal()
     const [isOpen, setIsOpen] = useState(false)
     const [option, setOption] = useState("All products")
     const listDrop = useRef()
@@ -51,9 +53,7 @@ export const DropdownList = () => {
         setIsOpen(false)
     }
 
-
-    // disabled={isOpen ? true : false}
-    // 
+       
 
     return (
         <div className="text-Neutral600 text-D-TEXT-L1-Default relative w-[335px] h-max">
@@ -72,10 +72,18 @@ export const DropdownList = () => {
                 isOpen &&
 
                 <div className="absolute border rounded-xl w-full top-[110%] h-auto flex flex-col overflow-hidden animate-animaOpacity lg:hover:bg-Neutral100" ref={listDrop}>
-                    <ButtonDropdown text={"All Products"} showMenu={showMenu} getOption={getOption} />
-                    <ButtonDropdown text={"Computers"} showMenu={showMenu} getOption={getOption} />
-                    <ButtonDropdown text={"Calculators"} showMenu={showMenu} getOption={getOption} />
-                    <ButtonDropdown text={"Tu hermana"} showMenu={showMenu} getOption={getOption} />
+
+                    {
+                        data.TechProducts.dropdown.map((elem) => (
+                            <ButtonDropdown key={Math.random().toString(36).slice(2)} text={elem} showMenu={showMenu} getOption={getOption} />
+                        ))
+                    }
+
+
+                    {/* <ButtonDropdown text={"All Products"} showMenu={showMenu} getOption={getOption} />
+                    <ButtonDropdown text={"Laptops"} showMenu={showMenu} getOption={getOption} />
+                    <ButtonDropdown text={"Tablets"} showMenu={showMenu} getOption={getOption} />
+                    <ButtonDropdown text={"Cameras"} showMenu={showMenu} getOption={getOption} /> */}
                 </div>
             }
 

@@ -169,49 +169,23 @@ export default function Home({ products }) {
       </div> */}
 
       
-      <div className="my-96">
+      {/* <div className="my-96">
 
         <Section />
 
-      </div>
-
-
-
-      {/* <div className="bg-Green-Default py-48 flex justify-center"> */}
-
-      {/* <PrimaryCard img={lachota.img} name={lachota.name} category={lachota.category} /> */}
-
-      {/* <ProductCard img={lachota.img} name={lachota.name} category={lachota.category} /> */}
-
-
-      {/* {
-          <ModuleAeroPay />
-
-        } */}
-
-      {/* {
-          <Selector />
-        } 
- 
-        {
-          <NumberSelector />
-        }  */}
-
-      {/* <Skeleton />   */}
-      {/* </div> */}
-
+      </div> */}
 
 
       {/* {
         visibleScroll && <Up scrollToTop={scrollToTop} />
       } */}
-      <div className="mx-auto">
+      <div className="mx-auto ">
 
-        {/* {
+        {
           <TechProducts 
             products={products}
           />
-        } */}
+        }
       </div>
 
 

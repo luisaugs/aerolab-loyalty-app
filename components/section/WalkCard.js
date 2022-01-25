@@ -13,9 +13,7 @@ const par_class = "pt-3 pb-6 text-M-TEXT-L1-Default text-Neutral600 dsk:text-D-T
 
 
 
-export const WalkCard = ({ data }) => {
-
-    const { srcPic, srcIco, title, body } = data
+export const WalkCard = ({ srcPic, srcIco, title, body }) => {
 
     const [size, setSize] = useState(false)
 

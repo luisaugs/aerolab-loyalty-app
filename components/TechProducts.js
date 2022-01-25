@@ -2,9 +2,15 @@ import { NumberSelector } from "./NumberSelector";
 import { DropdownList } from "./dropdown-menu/DropdownList"
 import { Pager } from "./pager/Pager";
 import { ProductCard } from "./products/ProductCard";
+import { useEffect, useState } from "react";
+import { useGlobal } from "../context/GlobalContext";
 
 
-export const TechProducts = ({products}) => {
+export const TechProducts = ({ products }) => {
+
+    
+
+
 
     return (
         <section className="py-20 w-full max-w-[1920px] mx-auto bg-Neutral100 overflow-hidden">
@@ -34,12 +40,13 @@ export const TechProducts = ({products}) => {
                 <div className="">
                     <div className="px-4 mx-auto max-w-[1400px] bg-Neutral100 flex flex-col gap-5 md:grid md:grid-cols-2 md:gap-y-5 md:gap-0 tbt:px-5 lg:grid-cols-3 2xl:grid-cols-4">
                         {
-                            products.map((p) => (
-                                <ProductCard 
-                                    key={p._id} 
-                                    img={p.img.url} 
-                                    name={p.name} 
-                                    category={p.category} 
+                            products.map(p => (
+                                <ProductCard
+                                    key={p._id}
+                                    idProduct={p._id}
+                                    img={p.img.url}
+                                    name={p.name}
+                                    category={p.category}
                                     cost={p.cost}
                                 />
                             ))

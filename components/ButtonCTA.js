@@ -12,7 +12,7 @@ const textEnd_class = "text-M-TEXT-L1-Default px-2 p-4"
 
 
 
-export const ButtonCTA = ({ textPre, ico, textEnd, handleClick, disabled, textDisabled }) => {
+export const ButtonCTA = ({ textPre, ico, textEnd, handleClick, disabled, textPreDisabled, textEndDisabled }) => {
 
     const [disableBtn, setDisableBtn] = useState(false)
 
@@ -25,7 +25,7 @@ export const ButtonCTA = ({ textPre, ico, textEnd, handleClick, disabled, textDi
         <button className={disableBtn ? btnDisabled_class : btnActive_class} onClick={handleClick} disabled={disableBtn}>
             <span className={textPre_class}>
                 {
-                    !disableBtn && textPre
+                    disableBtn ? textPreDisabled : textPre
                 }
             </span>
             <span className={ico_class}>
@@ -40,7 +40,7 @@ export const ButtonCTA = ({ textPre, ico, textEnd, handleClick, disabled, textDi
             </span>
             <span className={textEnd_class}>
                 {
-                    disableBtn ? textDisabled : textEnd
+                    disableBtn ? textEndDisabled : textEnd
                 }
             </span>
         </button>
