@@ -34,6 +34,11 @@ export default {
         },
     ],
     TechProducts: {
+        title: {
+            h2:"tech",
+            span: "products"        
+        },
+        sortBy: "Sort by:",
         dropdown: ["All products", "Laptops", "Tablets", "Cameras"],
         button: {
             textPre: "Redeem for",

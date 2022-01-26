@@ -34,7 +34,12 @@ export default {
         },
     ],
     TechProducts: {
-        dropdown: ["Todos los productos", "Laptops", "Tablets", "Cámaras"],
+        title: {
+            h2:"productos",
+            span: "tecnológicos"        
+        },
+        sortBy: "Ordenar por:",
+        dropdown: ["Todos", "Laptops", "Tablets", "Cámaras"],
         button: {
             textPre: "Canjear por",
             textPreDisabled: "Necesitas",

@@ -13,7 +13,7 @@ const btnCTA_class = "w-full pt-4"
 export const ProductCard = ({ idProduct, img, name, category, cost }) => {
 
     const { data, points, redeemPoints } = useGlobal()
-    const [price, setPrice] = useState(555)
+    const [price, setPrice] = useState(null)
     const [inProcess, setInProcess] = useState(false)
     const [disabled, setDisabled] = useState(false)
 
@@ -48,6 +48,7 @@ export const ProductCard = ({ idProduct, img, name, category, cost }) => {
 
 
     const updatePrice = () => {
+        if(Number.isNaN(points)) return
         if (points >= cost) {
             setPrice(cost)
             setDisabled(false)

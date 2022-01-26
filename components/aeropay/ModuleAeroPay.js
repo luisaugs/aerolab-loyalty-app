@@ -10,13 +10,7 @@ import { useGlobal } from "../../context/GlobalContext"
 
 
 
-
-
-const ico = "/assets/icons/aeropay-3.svg"
-
-
-
-//Buttons data
+//Buttons ico
 const btnDark = {
     src: "/assets/propios/dark-mode.svg",
     w: 24,
@@ -42,6 +36,8 @@ const btnList = {
     w: 24,
     h: 24
 }
+
+const ico = "/assets/icons/aeropay-3.svg"
 
 
 export const ModuleAeroPay = ({ showMenu }) => {
@@ -102,7 +98,7 @@ export const ModuleAeroPay = ({ showMenu }) => {
             setPoints(dataPoints['New Points'])
             setTimeout(() => {
                 setReqPoints(false)
-            }, 1000)
+            },500)
         } catch (error) {
             console.log("Error adding points...", error)
         }

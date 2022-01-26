@@ -14,7 +14,8 @@ export const GlobalProvider = ({ children }) => {
 
     //User status
     const [user, setUser] = useState("")
-    const [points, setPoints] = useState("---")
+    // const [points, setPoints] = useState("---")
+    const [points, setPoints] = useState(null)
 
 
 

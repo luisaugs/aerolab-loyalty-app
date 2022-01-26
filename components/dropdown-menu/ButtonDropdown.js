@@ -1,13 +1,8 @@
 
 export const ButtonDropdown = ({ text, showMenu, getOption }) => {
 
-    // const { text, showMenu } = props || { text: "Texto de prueba" }
-
-    // console.log(props, "🍑🍑🍑😪🍑🍑")
-
     const handleClick = () => {
         getOption(text)
-        console.log("lachota")
     }
 
     return (
