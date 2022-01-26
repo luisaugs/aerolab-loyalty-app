@@ -1,22 +1,72 @@
+import { useState } from "react"
+import { useEffect } from "react/cjs/react.development"
+import { useGlobal } from "../../context/GlobalContext"
 import { PagerButton } from "./PagerButton"
 
 
 
 
-export const Pager = (props) => {
+export const Pager = ({ actualValue = 1, endValue = 5 }) => {
 
-    const { actualValue, endValue } = props || { actualValue: 1, endValue: 2 }
+    const { data, totalPages, actPage, setActPage } = useGlobal()
+    const [disableLeft, setDisableLeft] = useState(true)
+    const [disableRight, setDisableRight] = useState(false)
+
+    const addPage = () => {
+        if (actPage == totalPages) {
+            setDisableRight(true)
+        } else {
+            setDisableRight(false)
+            setActPage(prev => prev + 1)
+        }
+    }
+
+    const sustPage = () => {
+        if (actPage == 1) {
+            setDisableLeft(true)
+        } else {
+            setDisableLeft(false)
+            setActPage(prev => prev - 1)
+
+        }
+    }
+
+    const statusButtons = () => {
+        if (actPage == totalPages) {
+            setDisableRight(true)
+        } else {
+            setDisableRight(false)
+        }
+
+        if (actPage == 1) {
+            setDisableLeft(true)
+        } else {
+            setDisableLeft(false)
+        }
+    }
+
+    useEffect(() => {
+        statusButtons()
+        window.scrollTo({ behavior: 'smooth', top: '0px' });
+    }, [actPage])
 
     return (
         <div className="py-3 px-4 rounded-2xl border border-Neutral300 flex justify-center items-center w-fit">
             <div>
-                <PagerButton left={true}/>
+                <PagerButton
+                    left={true}
+                    disabled={disableLeft}
+                    handBtn={sustPage}
+                />
             </div>
             <div className="px-6">
-                <p className="text-D-TEXT-L1-Default text-Neutral600">Page <span className="text-transparent bg-clip-text bg-gradient-to-r from-Brand-Default-Primary to-Brand-Default-Secondary">{actualValue} of {endValue}</span></p>
+                <p className="text-D-TEXT-L1-Default text-Neutral600">{data.TechProducts.pager.page} <span className="text-transparent bg-clip-text bg-gradient-to-r from-Brand-Default-Primary to-Brand-Default-Secondary">{actualValue} {data.TechProducts.pager.of} {endValue}</span></p>
             </div>
             <div>
-                <PagerButton />
+                <PagerButton
+                    disabled={disableRight}
+                    handBtn={addPage}
+                />
             </div>
         </div>
     )

@@ -4,8 +4,11 @@ import { useGlobal } from "../../context/GlobalContext"
 import chevron from "../../public/assets/icons/chevron-active.svg"
 import { ButtonDropdown } from "./ButtonDropdown"
 
-
-
+// TW class
+const divMainDrop_class = "text-Neutral600 text-D-TEXT-L1-Default relative w-[335px] h-max"
+const btnOpen_class = "bg-white w-full py-2 px-4 border rounded-xl flex items-center justify-between lg:hover:bg-Neutral200 pointer-events-none"
+const btnClose_class =  "bg-white w-full py-2 px-4 border rounded-xl flex items-center justify-between lg:hover:bg-Neutral200"
+const divDropOpen_class = "absolute border rounded-xl w-full top-[110%] h-auto flex flex-col overflow-hidden animate-animaOpacity lg:hover:bg-Neutral100"
 
 export const DropdownList = ({handleSelection}) => {
 
@@ -62,9 +65,10 @@ export const DropdownList = ({handleSelection}) => {
         }
     }, [data])
 
+
     return (
-        <div className="text-Neutral600 text-D-TEXT-L1-Default relative w-[335px] h-max">
-            <button className={`bg-white w-full py-2 px-4 border rounded-xl flex items-center justify-between lg:hover:bg-Neutral200 ${isOpen ? "pointer-events-none" : ""}`} onClick={showMenu} >
+        <div className={divMainDrop_class}>
+            <button className={isOpen ? btnOpen_class :btnClose_class} onClick={showMenu} >
                 <span className="pr-4 flex-grow">{option}</span>
                 <span className={`flex items-center justify-center ${isOpen ? "rotate-[270deg]" : "rotate-90"} duration-500`}>
                     <Image
@@ -77,7 +81,7 @@ export const DropdownList = ({handleSelection}) => {
 
             {
                 isOpen &&
-                <div className="absolute border rounded-xl w-full top-[110%] h-auto flex flex-col overflow-hidden animate-animaOpacity lg:hover:bg-Neutral100" ref={listDrop}>
+                <div className={divDropOpen_class} ref={listDrop}>
 
                     {
                         data.TechProducts.dropdown.map(elem => (
@@ -89,9 +93,3 @@ export const DropdownList = ({handleSelection}) => {
         </div>
     )
 }
-
-
-{/* <ButtonDropdown text={"All Products"} showMenu={showMenu} getOption={getOption} />
-<ButtonDropdown text={"Laptops"} showMenu={showMenu} getOption={getOption} />
-<ButtonDropdown text={"Tablets"} showMenu={showMenu} getOption={getOption} />
-<ButtonDropdown text={"Cameras"} showMenu={showMenu} getOption={getOption} /> */}

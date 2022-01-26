@@ -8,11 +8,11 @@ import _ from 'lodash'
 
 export const TechProducts = ({ products }) => {
 
-    const { data } = useGlobal()
+    const { data, lang, setLength, totalPages, setTotalPages, actPage, setActPage } = useGlobal()
     const [arrayProd, setArrayProd] = useState(products)
     const [order, setOrder] = useState("asc")
     const [orderActive, setOrderActive] = useState(true)
-    const [type, setType] = useState("name")
+    const [type, setType] = useState("cost")
     const [typeActive, setTypeActive] = useState(true)
     const [resQuery, setResQuery] = useState("")
 
@@ -38,6 +38,14 @@ export const TechProducts = ({ products }) => {
     }
 
 
+    const newArrayOrder = (arr) => {
+        const array = _.orderBy(arrToLowCase(arr), [type], [order]);
+        setArrayProd(array)
+        //Pagination
+        setLength(array.length)
+        setTotalPages(cantPag(array))
+        setActPage(1)
+    }
 
     const filterResult = (query) => {
         const arrayFlitered = products.filter((elem) => {
@@ -49,34 +57,23 @@ export const TechProducts = ({ products }) => {
             }
 
         })
-        setArrayProd(arrayFlitered)
-        // console.log(arrayFlitered, "🛴🛴🛴🛴🛴🛴🛴🛴🛴")
 
-        // console.log(arrToLowCase(arrayFlitered, "🎉🎉🎉🎉🎉🎉🎉🎉🎉"))
-
-
-        const arrayOrdered =  _.orderBy(arrToLowCase(arrayFlitered), [type], [order]);
+        const arrayOrdered = _.orderBy(arrToLowCase(arrayFlitered), [type], [order]);
         setArrayProd(arrayOrdered)
-        // console.log("🍑🍑🍑🍑🍑", _.orderBy(arrayFlitered, ['cost'], ['asc']));
+        // Pagination
+        setLength(arrayOrdered.length)
+        setTotalPages(cantPag(arrayOrdered))
+        setActPage(1)
     }
 
     const arrToLowCase = (arr) => {
-
         arr.map(e => {
             e.name = e.name.toLowerCase()
         })
-
         return arr
-
     }
 
-
-
-
-
-
     const handleSelection = (query) => {
-        // console.log(query, "🚗🚗🚗🚗🚗🚗🚗🚗")
         switch (query) {
             case "Laptops":
                 setResQuery("Laptops")
@@ -96,6 +93,7 @@ export const TechProducts = ({ products }) => {
                 break;
 
             default:
+                setResQuery("")
                 filterResult("")
                 break;
         }
@@ -105,7 +103,11 @@ export const TechProducts = ({ products }) => {
 
     useEffect(() => {
         filterResult("")
-    }, [type, order, resQuery ])
+        newArrayOrder(arrayProd)
+    }, [order, type])
+
+
+    const cantPag = arr => Math.ceil(arr.length / 4)
 
 
     return (
@@ -121,18 +123,6 @@ export const TechProducts = ({ products }) => {
                             <div className="w-full pb-4 text text-center text-M-TEXT-L1-Default text-Neutral600  md:pb-0 md:px-2 md:min-w-[100px] xl:w-[200px] xl:text-right">
                                 {data.TechProducts.sortBy}
                             </div>
-                            {/* BORRAR */}
-                            {/* BORRAR */}
-                            {/* BORRAR */}
-                            {/* BORRAR */}
-                            {/* BORRAR */}
-                            {/* BORRAR */}
-                            {/* <div>
-                                <button className="p-4 bg-red-500 rounded-2xl" onClick={() => filterResult("")}>default</button>
-                                <button className="p-4 bg-red-500 rounded-2xl" onClick={() => filterResult("Laptops")}>laptops</button>
-                                <button className="p-4 bg-red-500 rounded-2xl" onClick={() => filterResult("Tablets & E-readers")}>tablets</button>
-                                <button className="p-4 bg-red-500 rounded-2xl" onClick={() => filterResult("Cameras")}>camera</button>
-                            </div> */}
                             <div className="w-full grid grid-cols-2 justify-it  ems-center gap-1 md:flex md:gap-0 md:px-1 xl:justify-between">
                                 <div>
                                     <NumberSelector
@@ -147,16 +137,36 @@ export const TechProducts = ({ products }) => {
                                     />
                                 </div>
                                 <div>
-                                    <NumberSelector
-                                        value={"cost"}
-                                        active={typeActive}
-                                        handleClick={handleType}
-                                    />
-                                    <NumberSelector
-                                        value={"name"}
-                                        active={!typeActive}
-                                        handleClick={handleType}
-                                    />
+                                    {lang == "en"
+                                        ?
+                                        <>
+                                            <NumberSelector
+                                                value={data.TechProducts.btnCost}
+                                                active={typeActive}
+                                                handleClick={handleType}
+                                            />
+
+                                            <NumberSelector
+                                                value={data.TechProducts.btnType}
+                                                active={!typeActive}
+                                                handleClick={handleType}
+                                            />
+                                        </>
+                                        :
+                                        <>
+                                            <NumberSelector
+                                                value={data.TechProducts.btnCost}
+                                                active={typeActive}
+                                                handleClick={handleType}
+                                            />
+
+                                            <NumberSelector
+                                                value={data.TechProducts.btnType}
+                                                active={!typeActive}
+                                                handleClick={handleType}
+                                            />
+                                        </>
+                                    }
                                 </div>
 
                             </div>
@@ -167,7 +177,7 @@ export const TechProducts = ({ products }) => {
                 <div className="">
                     <div className="px-4 mx-auto max-w-[1400px] bg-Neutral100 flex flex-col gap-5 md:grid md:grid-cols-2 md:gap-y-5 md:gap-0 tbt:px-5 lg:grid-cols-3 2xl:grid-cols-4">
                         {
-                            arrayProd.map(p => (
+                            arrayProd.slice((actPage - 1) * 4, actPage * 4).map(p => (
                                 <ProductCard
                                     key={p._id}
                                     idProduct={p._id}
@@ -181,7 +191,10 @@ export const TechProducts = ({ products }) => {
                     </div>
                 </div>
                 <div className="py-16 flex items-center justify-center">
-                    <Pager />
+                    <Pager
+                        actualValue={actPage}
+                        endValue={totalPages}
+                    />
                 </div>
             </div>
         </section>

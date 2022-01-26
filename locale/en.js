@@ -35,10 +35,12 @@ export default {
     ],
     TechProducts: {
         title: {
-            h2:"tech",
-            span: "products"        
+            h2: "tech",
+            span: "products"
         },
         sortBy: "Sort by:",
+        btnCost:"cost",
+        btnType:"name",
         dropdown: ["All products", "Laptops", "Tablets", "Cameras"],
         button: {
             textPre: "Redeem for",
@@ -51,7 +53,12 @@ export default {
             textPreDisabled: "Processing...",
             textEnd: "",
             textEndDisabled: ""
+        },
+        pager: {
+            page: "Page",
+            of: "of"
         }
+
     },
     footer: "View this repository"
 }

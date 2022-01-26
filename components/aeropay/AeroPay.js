@@ -7,14 +7,15 @@ import { ModuleAeroPay } from "./ModuleAeroPay"
 
 
 
+// TW class
+const btnAero_class = "select-none text-D-TEXT-L1-Default px-2 py-2 border border-[#DAE4F2] rounded-2xl flex flex-row justify-center items-center bg-white shadow-soft mr-1"
+
+
 
 export const AeroPay = () => {
 
-
     const { points } = useGlobal()
     const [isOpen, setIsOpen] = useState(false)
-
-
 
     const showMenu = () => {
         isOpen ? setIsOpen(false) : setIsOpen(true)
@@ -37,7 +38,7 @@ export const AeroPay = () => {
     return (
         <div className="relative">
             <button
-                className="select-none text-D-TEXT-L1-Default px-2 py-2 border border-[#DAE4F2] rounded-2xl flex flex-row justify-center items-center bg-white shadow-soft mr-1"
+                className={btnAero_class}
                 onClick={showMenu}
             >
                 <span className="flex flex-row justify-center items-center pr-4">

@@ -39,6 +39,8 @@ export default {
             span: "tecnológicos"        
         },
         sortBy: "Ordenar por:",
+        btnCost:"precio",
+        btnType:"nombre",
         dropdown: ["Todos", "Laptops", "Tablets", "Cámaras"],
         button: {
             textPre: "Canjear por",
@@ -51,6 +53,10 @@ export default {
             textPreDisabled: "Procesando...",
             textEnd: "",
             textEndDisabled: ""
+        },
+        pager: {
+            page: "Página",
+            of: "de"
         }
     },
 
