@@ -65,6 +65,13 @@ export const GlobalProvider = ({ children }) => {
 
     
 
+    //Modal history
+    const [modalHistory, setModalHistory] = useState(false)
+
+    const handleModal = () => {
+      setModalHistory(!modalHistory)
+    }
+
     
     const values = {
         user,
@@ -80,7 +87,9 @@ export const GlobalProvider = ({ children }) => {
         actPage,
         setActPage,
         totalPages,
-        setTotalPages
+        setTotalPages,
+        modalHistory,
+        handleModal
     }
 
     return (

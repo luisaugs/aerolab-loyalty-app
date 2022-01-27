@@ -112,7 +112,7 @@ export const TechProducts = ({ products }) => {
 
     return (
         <section className="py-20 w-full max-w-[1920px] mx-auto bg-Neutral100 overflow-hidden">
-            <h2 className="w-full p-10 text-center text-M-TITLES-L2 uppercase text-Neutral900 font-black bg-Neutral200 shadow-soft"><span className=" text-transparent bg-clip-text bg-gradient-to-r from-Brand-Default-Primary to-Brand-Default-Secondary" id="techProducts">{data.TechProducts.title.h2}</span> {data.TechProducts.title.span}</h2>
+            <h2 className="w-full p-10 text-center text-M-TITLES-L2 uppercase text-Neutral900 font-black shadow-soft"><span className=" text-transparent bg-clip-text bg-gradient-to-r from-Brand-Default-Primary to-Brand-Default-Secondary" id="techProducts">{data.TechProducts.title.h2}</span> {data.TechProducts.title.span}</h2>
             <div className="w-full flex flex-col py-5 justify-center">
                 <div className="flex flex-col justify-center items-center px-4 pb-4 mx-auto max-w-[1400px] md:p-4 md:w-full md:px-[30px ] xl:justify-between">
                     <div className="w-full md:flex md:flex-col md:items-start lg:justify-center xl:flex-row xl:gap-x-2 xl:items-center">
@@ -124,7 +124,7 @@ export const TechProducts = ({ products }) => {
                                 {data.TechProducts.sortBy}
                             </div>
                             <div className="w-full grid grid-cols-2 justify-it  ems-center gap-1 md:flex md:gap-0 md:px-1 xl:justify-between">
-                                <div>
+                                <div className="flex flex-col justify-center items-center gap-3">
                                     <NumberSelector
                                         value={"asc"}
                                         active={orderActive}
@@ -136,7 +136,7 @@ export const TechProducts = ({ products }) => {
                                         handleClick={handleOrder}
                                     />
                                 </div>
-                                <div>
+                                <div className="flex flex-col justify-center items-center gap-3">
                                     {lang == "en"
                                         ?
                                         <>
@@ -168,7 +168,6 @@ export const TechProducts = ({ products }) => {
                                         </>
                                     }
                                 </div>
-
                             </div>
                         </div>
 

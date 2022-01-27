@@ -1,11 +1,17 @@
 import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-export const PrimaryCard = ({ img, name, category }) => {
+export const PrimaryCard = ({ img, name, category, disabled }) => {
 
-   
+
     // Hovering effect 
     const [border, setBorder] = useState(true)
+    const [actHover, setActHover] = useState(false)
+
+
+    useEffect(() => {
+        setActHover(!disabled)
+    }, [disabled])
 
     return (
 
@@ -25,13 +31,17 @@ export const PrimaryCard = ({ img, name, category }) => {
                 <h3 className="capitalize text-Neutral900 text-D-TEXT-L1-Default w-full pt-4 px-6">{name}</h3>
                 <p className="uppercase text-Neutral600 text-D-TEXT-L2-All w-full pb-6 px-6">{category}</p>
             </div>
+
+
             {/* Animate blur hovering */}
-            <div className={`absolute p-[2px] w-[326px] h-[436px] bg-gradient-to-r from-Brand-Default-Primary to-Brand-Default-Secondary rounded-2xl left-1/2 translate-x-[-50%] top-1/2 translate-y-[-50%] animate-animaOpacity blur ${border && 'hidden'}`}></div>
+            {/* {
+                actHover &&
+                <div className={`xl:absolute xl:p-[2px] xl:w-[326px] xl:h-[436px] xl:bg-gradient-to-r xl:from-Brand-Default-Primary xl:to-Brand-Default-Secondary xl:rounded-2xl xl:left-1/2 xl:translate-x-[-50%] xl:top-1/2 xl:translate-y-[-50%] xl:animate-animaOpacity xl:blur ${border && 'xl:hidden'}`}></div>
+
+            } */}
+
+
         </div>
 
     )
 }
-
-
-
-// original card

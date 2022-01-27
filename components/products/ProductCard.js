@@ -71,6 +71,7 @@ export const ProductCard = ({ idProduct, img, name, category, cost }) => {
                 img={img}
                 name={name}
                 category={category}
+                disabled={disabled}
             />
             <div className={btnCTA_class}>
                 {inProcess

@@ -17,8 +17,8 @@ export const NumberSelector = ({ value, active, handleClick }) => {
     }, [active])
 
     return (
-        <button className={toggleBtn ? bg_actived : bg_noActived}>
-            <span className={toggleBtn ? text_actived : text_noActived} onClick={handleClick}>
+        <button className={toggleBtn ? bg_actived : bg_noActived} onClick={handleClick}>
+            <span className={toggleBtn ? text_actived : text_noActived}>
                 {value ? value : 10000}
             </span>
         </button>

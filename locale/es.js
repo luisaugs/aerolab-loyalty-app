@@ -17,7 +17,7 @@ export default {
         {
             card_1: {
                 title: "navega",
-                body: "Navega nuestro catálogo coon más de 20 productos tecnológicos"
+                body: "Navega nuestro catálogo con más de 20 productos tecnológicos"
             }
         },
         {

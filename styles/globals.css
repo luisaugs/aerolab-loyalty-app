@@ -30,29 +30,39 @@ a {
 }
 
 
-/* width */
 ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
+
+/* width */
+/* ::-webkit-scrollbar {
   width: 3px;
   height: 6px;
-}
+} */
 
 /* Track */
-::-webkit-scrollbar-track {
+/* ::-webkit-scrollbar-track {
 border-radius: 100vh;
 background: #fff;
-}
+} */
 
 /* Handle */
-::-webkit-scrollbar-thumb {
+/* ::-webkit-scrollbar-thumb {
 background: #cbd5e0;
 border-radius: 100vh;
 border: 1px solid #080c14;
-}
+} */
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+/* ::-webkit-scrollbar-thumb:hover {
 background: #cbd5e080;
-}
+} */
+
+
+
+
 
 @keyframes animaOpacity {
   0% {

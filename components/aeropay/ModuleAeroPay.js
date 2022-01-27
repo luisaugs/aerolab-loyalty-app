@@ -7,6 +7,7 @@ import { ButtonNav } from "../ButtonNav"
 import { useState } from "react"
 import { addPoints } from "../../logic/api"
 import { useGlobal } from "../../context/GlobalContext"
+import History from "../history/History"
 
 
 
@@ -42,12 +43,14 @@ const ico = "/assets/icons/aeropay-3.svg"
 
 export const ModuleAeroPay = ({ showMenu }) => {
 
-    const { user, setPoints, lang, setLang, data } = useGlobal()
+    const { user, setPoints, lang, setLang, data, handleModal } = useGlobal()
     const [pointsToAdd, setPointsToAdd] = useState(1000)
     const [activeBtn1, setActiveBtn1] = useState(true)
     const [activeBtn2, setActiveBtn2] = useState(false)
     const [activeBtn3, setActiveBtn3] = useState(false)
     const [reqPoints, setReqPoints] = useState(false)
+    
+
 
 
     const setSpanish = () => {
@@ -82,7 +85,7 @@ export const ModuleAeroPay = ({ showMenu }) => {
         try {
             setReqPoints(true)
             let amountPoints
-    
+
             if (activeBtn1) {
                 amountPoints = 1000
             } else if (activeBtn2) {
@@ -92,13 +95,13 @@ export const ModuleAeroPay = ({ showMenu }) => {
             } else {
                 amountPoints = null;
             }
-    
+
             const dataPoints = await addPoints(amountPoints)
             setPointsToAdd(dataPoints['New Points'])
             setPoints(dataPoints['New Points'])
             setTimeout(() => {
                 setReqPoints(false)
-            },500)
+            }, 500)
         } catch (error) {
             console.log("Error adding points...", error)
         }
@@ -191,11 +194,12 @@ export const ModuleAeroPay = ({ showMenu }) => {
 
                             }
                         </span>
-                        <span>
+                        <span onClick={showMenu}>
                             <ButtonNav
                                 src={btnList.src}
                                 w={btnList.w}
                                 h={btnList.h}
+                                handleClick={handleModal}
                             />
                         </span>
                     </div>

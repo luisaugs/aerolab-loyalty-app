@@ -18,45 +18,24 @@ import { PrimaryCard } from "../components/products/PrimaryCard";
 import { ProductCard } from "../components/products/ProductCard";
 import { Skeleton } from "../components/products/Skeleton";
 
-// import { Toast } from "../components/Toast";
-// import { WalkCard } from "../components/WalkCard";
-import { getUserInfo, getUserHistory, getProducts } from '../logic/api'
-import { data } from "autoprefixer";
+
+import { getUserHistory, getProducts } from '../logic/api'
+import History from "../components/history/History";
+import { useGlobal } from "../context/GlobalContext";
 
 
-// export const getStaticProps = async () => {
 
-//   const url = 'https://coding-challenge-api.aerolab.co/products';
-//   const token = process.env.TOKEN
-//   const res = await fetch(url, {
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'Authorization': 'Bearer ' + token
-//     }
-//   })
-//   const data = await res.json()
-//   // console.log(data)
-
-//   return {
-//     props: {
-//       products: data
-//     }
-//   }
-
-// }
 
 
 export const getStaticProps = async () => {
 
   try {
-    // const [dataProducts, dataUserInfo, dataHistory] = await Promise.all([getProducts(), getUserInfo(), getUserHistory()])
-    // console.log(dataProducts, "🍕🍕🍕🍕🍕🍕🍕🍕",dataUserInfo, "🍑🍑🍑🍑🍑🍑🍑🍑🍑", dataHistory, "😪😪😪😪😪😪😪")
-    const dataProducts = await getProducts()
-    // console.log(dataProducts)
+    const [dataProducts, dataHistory] = await Promise.all([getProducts(), getUserHistory()])
 
     return {
       props: {
         products: dataProducts,
+        history: dataHistory,
         // userInfo: dataUserInfo
       }
     }
@@ -70,67 +49,9 @@ export const getStaticProps = async () => {
 
 
 
+export default function Home({ products, history }) {
 
-
-const walkOne = [
-  {
-    id: 1,
-    srcPic: "/assets/images/walkthroug-1-desktop.png",
-    srcIco: "/assets/icons/walkthrough-1.svg",
-    title: "super titulo",
-    body: "Lalalalal lalalalal lalalalla llala"
-  },
-  {
-    id: 2,
-    srcPic: "/assets/images/walkthroug-2-desktop.png",
-    srcIco: "/assets/icons/walkthrough-2.svg",
-    title: "super titulo",
-    body: "Lalalalal lalalalal lalalalla llala"
-  },
-  {
-    id: 3,
-    srcPic: "/assets/images/walkthroug-3-desktop.png",
-    srcIco: "/assets/icons/walkthrough-3.svg",
-    title: "super titulo",
-    body: "Lalalalal lalalalal lalalalla llala"
-  },
-]
-
-const dataWalk = {
-  id: 1,
-  srcPic: "/assets/images/walkthroug-3-desktop.png",
-  srcIco: "/assets/icons/walkthrough-2.svg",
-  title: "1-browse",
-  body: "Browse our  catalog with more than 20 tech products"
-}
-
-const btn1 = {
-  textPre: "hola",
-  ico: "/assets/icons/aeropay-1-white.svg",
-  textEnd: "100",
-  width: 150,
-  height: 100
-}
-
-const btnChevron = {
-  disabled: false,
-  left: false
-}
-
-const testToast = {
-  product: "Lala",
-  failOp: false
-}
-
-const lachota = {
-  img: "/assets/propios/mouse.png",
-  name: "mouse gamer",
-  category: "pc"
-}
-
-
-
-export default function Home({ products }) {
+  const { modalHistory } = useGlobal()
 
   // Boton scroll to top
   const [visibleScroll, setVisibleScroll] = useState(false)
@@ -159,36 +80,34 @@ export default function Home({ products }) {
   // End Boton scroll to top
 
 
+  useEffect(() => {
+    // modalHistory && (document.body.style.overflow = 'hidden');
+    !modalHistory && (document.body.style.overflow = '');
+  }, [modalHistory]);
 
 
   return (
-    <div className='min-h-screen bg-gray-800  '>
+    <div className='min-h-screen'>
 
-       {/* <div>
-        <Landing />
-      </div> */}
-
-      
-      {/* <div className="my-96">
-
-        <Section />
-
-      </div> */}
-
-
-      {/* {
-        visibleScroll && <Up scrollToTop={scrollToTop} />
-      } */}
-      <div className="mx-auto ">
+      {
+        modalHistory &&
+        <History
+          history={history}
+        />
+      }  
+      <Landing />
+      <Section />
+      <div className="mx-auto">
 
         {
-          <TechProducts 
+          <TechProducts
             products={products}
           />
         }
       </div>
-
-
+      {
+        visibleScroll && <Up scrollToTop={scrollToTop} />
+      }
     </div>
   )
 }

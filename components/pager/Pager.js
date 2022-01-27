@@ -47,7 +47,10 @@ export const Pager = ({ actualValue = 1, endValue = 5 }) => {
 
     useEffect(() => {
         statusButtons()
-        window.scrollTo({ behavior: 'smooth', top: '0px' });
+        window.scrollTo({
+            top: 2400,
+            behavior: 'smooth'
+          });
     }, [actPage])
 
     return (
