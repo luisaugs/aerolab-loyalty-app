@@ -8,13 +8,14 @@ import _ from 'lodash'
 
 export const TechProducts = ({ products }) => {
 
-    const { data, lang, setLength, totalPages, setTotalPages, actPage, setActPage } = useGlobal()
+    const { data, lang, totalPages, setTotalPages, actPage, setActPage } = useGlobal()
     const [arrayProd, setArrayProd] = useState(products)
     const [order, setOrder] = useState("asc")
     const [orderActive, setOrderActive] = useState(true)
     const [type, setType] = useState("cost")
     const [typeActive, setTypeActive] = useState(true)
     const [resQuery, setResQuery] = useState("")
+    const [items, setItems] = useState(null)
 
 
     const handleOrder = () => {
@@ -42,7 +43,6 @@ export const TechProducts = ({ products }) => {
         const array = _.orderBy(arrToLowCase(arr), [type], [order]);
         setArrayProd(array)
         //Pagination
-        setLength(array.length)
         setTotalPages(cantPag(array))
         setActPage(1)
     }
@@ -61,12 +61,11 @@ export const TechProducts = ({ products }) => {
         const arrayOrdered = _.orderBy(arrToLowCase(arrayFlitered), [type], [order]);
         setArrayProd(arrayOrdered)
         // Pagination
-        setLength(arrayOrdered.length)
         setTotalPages(cantPag(arrayOrdered))
         setActPage(1)
     }
 
-    const arrToLowCase = (arr) => {
+    const arrToLowCase = (arr) => { 
         arr.map(e => {
             e.name = e.name.toLowerCase()
         })
@@ -102,12 +101,33 @@ export const TechProducts = ({ products }) => {
 
 
     useEffect(() => {
+        resize()
         filterResult("")
         newArrayOrder(arrayProd)
-    }, [order, type])
+    }, [order, type, items])
 
 
-    const cantPag = arr => Math.ceil(arr.length / 4)
+    const cantPag = arr => Math.ceil(arr.length / items)
+
+    const resize = () => {
+        if (window.innerWidth < 640) {
+            setItems(4)
+        } else if (window.innerWidth >= 640 && window.innerWidth < 1024) {
+            setItems(6)
+        } else {
+            setItems(8)
+        }
+    }
+
+    useEffect(()=>{
+        window.addEventListener('resize', resize)
+        return () => {
+            window.removeEventListener('resize', resize)
+        }
+    },[totalPages])
+
+
+    console.log("Total Paginas: ",totalPages,"Items por pag: ", items)
 
 
     return (
@@ -180,7 +200,7 @@ export const TechProducts = ({ products }) => {
                 <div className="">
                     <div className="px-4 mx-auto max-w-[1400px] bg-Neutral100 flex flex-col gap-5 md:grid md:grid-cols-2 md:gap-y-5 md:gap-0 tbt:px-5 lg:grid-cols-3 2xl:grid-cols-4">
                         {
-                            arrayProd.slice((actPage - 1) * 4, actPage * 4).map(p => (
+                            arrayProd.slice((actPage - 1) * items, actPage * items).map(p => (
                                 <ProductCard
                                     key={p._id}
                                     idProduct={p._id}

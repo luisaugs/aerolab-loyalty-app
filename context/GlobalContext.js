@@ -59,7 +59,6 @@ export const GlobalProvider = ({ children }) => {
 
 
     //Pagination
-    const [length, setLength] = useState(null)
     const [actPage, setActPage] = useState(1)
     const [totalPages, setTotalPages] = useState(null)
 
@@ -82,8 +81,6 @@ export const GlobalProvider = ({ children }) => {
         data,
         redeemPoints,
         dataUserInfo,
-        length,
-        setLength,
         actPage,
         setActPage,
         totalPages,
