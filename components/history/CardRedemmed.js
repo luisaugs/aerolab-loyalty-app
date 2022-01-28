@@ -1,12 +1,11 @@
 import Image from "next/image";
+import { useGlobal } from "../../context/GlobalContext";
 import test from "../../public/assets/propios/sin_bg/AcerAspire-x1.png"
-
-
 
 
 export const CardRedemmed = ({ name = "name", category = "category", src, cost, date }) => {
 
-
+    const {data} = useGlobal()
 
 
     return (
@@ -22,8 +21,8 @@ export const CardRedemmed = ({ name = "name", category = "category", src, cost, 
                 <div className="bg-Neutral100 w-full sm:border-l sm:border-Neutral500">
                     <h3 className="capitalize text-Neutral900 text-D-TEXT-L1-Default w-full pt-4 text-center px-4">{name}</h3>
                     <p className="uppercase text-Neutral600 text-D-TEXT-L2-All w-full pt-4 px-4 text-center">{category}</p>
-                    <p className="uppercase text-Neutral600 text-D-TEXT-L2-All w-full py-4 px-4">Precio: {cost}</p>
-                    <p className="uppercase text-Neutral600 text-D-TEXT-L2-All w-full pb-6 px-4">Fecha: {date}</p>
+                    <p className="uppercase text-Neutral600 text-D-TEXT-L2-All w-full py-4 px-4">{data.history.card.price}{cost}</p>
+                    <p className="uppercase text-Neutral600 text-D-TEXT-L2-All w-full pb-6 px-4">{data.history.card.date}{date}</p>
                 </div>
             </div>
         </div>

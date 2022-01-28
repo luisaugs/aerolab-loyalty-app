@@ -2,8 +2,9 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useGlobal } from "../../context/GlobalContext";
 import cross from "../../public/assets/icons/cross-default.svg"
+import arrow from "../../public/assets/propios/arrow-d.svg"
 import { CardRedemmed } from "./CardRedemmed";
-import _ from "lodash"
+import _, { set } from "lodash"
 
 
 
@@ -13,18 +14,10 @@ const bkgAct_class = "fixed top-0 w-full h-full justify-center flex flex-col ite
 
 const History = ({ history }) => {
 
-    const { handleModal, modalHistory } = useGlobal()
+    const { data, handleModal, modalHistory } = useGlobal()
     const [background, setBackground] = useState(bkgAct_class)
     const [histArray, setHistArray] = useState([])
-
-
-    const prueba = (arr) => {
-        const occ = arr.reduce((acc, curr) => {
-            return acc[curr.productId] ? ++acc[curr.productId] : acc[curr.productId] = 1, acc
-        }, {});
-
-        console.log(occ, "🛴🛴🛴🛴🛴🛴🛴🛴")
-    }
+    const [showArrow, setShowArrow] = useState(true)
 
 
     useEffect(() => {
@@ -65,8 +58,16 @@ const History = ({ history }) => {
     }, []);
 
 
+
+
+    //arrow bottom
+    const handleScroll = (e) => {
+        const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
+        bottom ? setShowArrow(false) : setShowArrow(true)
+    }
+
+
     return (
-        // <div className={background}>
         <div className={background}>
             <button className="absolute top-4 right-4" onClick={handleModal}>
                 <span className="flex items-center justify-center">
@@ -77,7 +78,11 @@ const History = ({ history }) => {
                     />
                 </span>
             </button>
-            <div className="overflow-y-auto">
+            <h2
+                className="text-M-TEXT-L1-Default text-Neutral900 uppercase">
+                {data.history.header}
+            </h2>
+            <div className="overflow-y-auto" onScroll={handleScroll}>
 
                 {
                     histArray &&
@@ -94,6 +99,28 @@ const History = ({ history }) => {
                 }
 
             </div>
+
+            {
+
+                showArrow
+                    ?
+                    <div className="absolute bottom-2 animate-bounce opacity-25">
+                        <Image
+                            src={arrow}
+                            width={32}
+                            height={32}
+                        />
+                    </div>
+                    :
+                    <div className="absolute bottom-2 rotate-180 animate-animaOpacity">
+                        <Image
+                            src={arrow}
+                            width={32}
+                            height={32}
+                        />
+                    </div>
+
+            }
         </div>
     )
 };

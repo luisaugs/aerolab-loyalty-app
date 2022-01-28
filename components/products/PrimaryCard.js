@@ -34,11 +34,11 @@ export const PrimaryCard = ({ img, name, category, disabled }) => {
 
 
             {/* Animate blur hovering */}
-            {/* {
+            {
                 actHover &&
                 <div className={`xl:absolute xl:p-[2px] xl:w-[326px] xl:h-[436px] xl:bg-gradient-to-r xl:from-Brand-Default-Primary xl:to-Brand-Default-Secondary xl:rounded-2xl xl:left-1/2 xl:translate-x-[-50%] xl:top-1/2 xl:translate-y-[-50%] xl:animate-animaOpacity xl:blur ${border && 'xl:hidden'}`}></div>
 
-            } */}
+            }
 
 
         </div>

@@ -59,6 +59,12 @@ export default {
             of: "de"
         }
     },
-
+    history:{
+        header: "últimos productos canjeados",
+        card:{
+            price:"precio: ",
+            date:"fecha: "
+        }
+    },
     footer: "Ver este repositorio"
 }

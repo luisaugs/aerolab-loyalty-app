@@ -60,5 +60,12 @@ export default {
         }
 
     },
+    history:{
+        header: "last products redeemed",
+        card:{
+            price:"cost: ",
+            date:"date: "
+        }
+    },
     footer: "View this repository"
 }

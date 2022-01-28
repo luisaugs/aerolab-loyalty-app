@@ -1,30 +1,11 @@
 import { useEffect, useState } from "react";
-import { ModuleAeroPay } from "../components/aeropay/ModuleAeroPay";
-// import { ButtonCTA } from "../components/ButtonCTA";
-// import { ButtonNav } from "../components/ButtonNav";
-// import { Dropdown } from "../components/Dropdown";
-import { DropdownList } from "../components/dropdown-menu/DropdownList";
+import { useGlobal } from "../context/GlobalContext";
+import { getUserHistory, getProducts } from '../logic/api'
 import { Landing } from "../components/Landing";
-import { Pager } from "../components/pager/Pager";
 import { TechProducts } from "../components/TechProducts";
 import { Up } from "../components/Up";
-// import { PagerButton } from "../components/PagerButton";
 import { Section } from "../components/section/Section";
-import { WalkCard } from "../components/section/WalkCard";
-import { Toast } from "../components/Toast"
-import { Selector } from "../components/selector/Selector";
-import { NumberSelector } from "../components/NumberSelector";
-import { PrimaryCard } from "../components/products/PrimaryCard";
-import { ProductCard } from "../components/products/ProductCard";
-import { Skeleton } from "../components/products/Skeleton";
-
-
-import { getUserHistory, getProducts } from '../logic/api'
 import History from "../components/history/History";
-import { useGlobal } from "../context/GlobalContext";
-
-
-
 
 
 export const getStaticProps = async () => {
@@ -45,8 +26,6 @@ export const getStaticProps = async () => {
   }
 
 }
-
-
 
 
 export default function Home({ products, history }) {
@@ -94,17 +73,12 @@ export default function Home({ products, history }) {
         <History
           history={history}
         />
-      }  
+      }
       <Landing />
       <Section />
-      <div className="mx-auto">
-
-        {
-          <TechProducts
-            products={products}
-          />
-        }
-      </div>
+      <TechProducts
+        products={products}
+      />
       {
         visibleScroll && <Up scrollToTop={scrollToTop} />
       }

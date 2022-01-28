@@ -26,7 +26,7 @@ export const Landing = () => {
 
                 {/* LINK */}
                 <div className="dsk:pl-60 uppercase">
-                    <a href="#techProducts" className="max-w-full dsk:max-w-[275px] p-4 flex justify-around items-center bg-gradient-to-r from-Brand-Default-Primary to-Brand-Default-Secondary rounded-2xl dsk:text-D-TEXT-L1-Default text-Neutral200 relative 2xl:hover:top-[2px]">{data.Landing.btn}
+                    <a href="#techProducts" className="max-w-full dsk:max-w-[275px] p-4 flex justify-around items-center bg-gradient-to-r from-Brand-Default-Primary to-Brand-Default-Secondary rounded-2xl dsk:text-D-TEXT-L1-Default text-Neutral200 relative 2xl:hover:top-[2px] z-10">{data.Landing.btn}
                         <span className="flex justify-center items-center animate-bounce">
                             <Image
                                 src={arrowDown}

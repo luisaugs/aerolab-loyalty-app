@@ -3,7 +3,7 @@ import upIco from "../public/assets/propios/up.svg"
 
 
 // TW class
-const btn_class = "p-2 rounded-xl bg-Neutral600 fixed bottom-10 right-10 opacity-60 lg:hover:opacity-100"
+const btn_class = "p-2 rounded-xl bg-Neutral600 fixed bottom-10 right-10 opacity-60 lg:hover:opacity-100 z-10"
 const spn_class = "flex items-center justify-self-center"
 
 
