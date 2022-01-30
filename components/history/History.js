@@ -4,7 +4,7 @@ import { useGlobal } from "../../context/GlobalContext";
 import cross from "../../public/assets/icons/cross-default.svg"
 import arrow from "../../public/assets/propios/arrow-d.svg"
 import { CardRedemmed } from "./CardRedemmed";
-import _, { set } from "lodash"
+
 
 
 

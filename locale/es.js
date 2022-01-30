@@ -66,5 +66,9 @@ export default {
             date:"fecha: "
         }
     },
+    toast:{
+        ok:"canjeado existosamente.",
+        error:"Hubo un problema con la operación."
+    }, 
     footer: "Ver este repositorio"
 }

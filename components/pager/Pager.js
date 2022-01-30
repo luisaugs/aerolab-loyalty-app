@@ -1,12 +1,11 @@
-import { useState } from "react"
-import { useEffect } from "react/cjs/react.development"
+import { useState, useEffect } from "react"
 import { useGlobal } from "../../context/GlobalContext"
 import { PagerButton } from "./PagerButton"
 
 
 
 
-export const Pager = ({ actualValue = 1, endValue = 5 }) => {
+export const Pager = ({ actualValue = 1, endValue = 5, handleClick }) => {
 
     const { data, totalPages, actPage, setActPage } = useGlobal()
     const [disableLeft, setDisableLeft] = useState(true)
@@ -46,16 +45,13 @@ export const Pager = ({ actualValue = 1, endValue = 5 }) => {
     }
 
     useEffect(() => {
+        // handleClick()
         statusButtons()
-        // window.scrollTo({
-        //     top: 2400,
-        //     behavior: 'smooth'
-        //   });
     }, [actPage])
 
     return (
         <div className="py-3 px-4 rounded-2xl border border-Neutral300 flex justify-center items-center w-fit">
-            <div>
+            <div onClick={handleClick}>
                 <PagerButton
                     left={true}
                     disabled={disableLeft}
@@ -65,7 +61,7 @@ export const Pager = ({ actualValue = 1, endValue = 5 }) => {
             <div className="px-6">
                 <p className="text-D-TEXT-L1-Default text-Neutral600">{data.TechProducts.pager.page} <span className="text-transparent bg-clip-text bg-gradient-to-r from-Brand-Default-Primary to-Brand-Default-Secondary">{actualValue} {data.TechProducts.pager.of} {endValue}</span></p>
             </div>
-            <div>
+            <div onClick={handleClick}>
                 <PagerButton
                     disabled={disableRight}
                     handBtn={addPage}

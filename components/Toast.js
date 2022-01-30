@@ -3,6 +3,7 @@ import Image from "next/image"
 import close from '../public/assets/icons/cross-active.svg'
 import icoOk from '../public/assets/icons/system-success.svg'
 import icoError from '../public/assets/icons/system-error.svg'
+import { useGlobal } from "../context/GlobalContext"
 
 //TW class
 const ok_class = "border-2 w-[360px] h-24 p-6 rounded-xl flex justify-between items-start mx-auto sm:w-[532px] sm:h-20 border-Green-Default"
@@ -14,8 +15,9 @@ const prod_class = "block text-M-TEXT-L1-Default text-Neutral900 sm:pr-2"
 const btnClose_class = "flex items-center justify-center"
 
 
-export const Toast = ({ product, failOp }) => {
+export const Toast = ({ product = "Product", failOp }) => {
 
+    const {data} = useGlobal()
 
     //Colors
     const [error, setError] = useState(false)
@@ -57,10 +59,26 @@ export const Toast = ({ product, failOp }) => {
 
                 </span>
                 <div className={thirdDiv_class}>
-                    <span className={prod_class}>
-                        Product Name
-                    </span>
-                    redeemed successfully
+                    {
+                        error
+                            ?
+                            <>
+                                {/* <span className={prod_class}>
+                                    Product Name
+                                </span> */}
+                                {data.toast.error}
+                            </>
+
+                            :
+                            <>
+                            <span className={prod_class}>
+                                {product}
+                            </span>
+                            {data.toast.ok}
+                        </>
+
+                    }
+
                 </div>
             </div>
 

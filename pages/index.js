@@ -6,6 +6,7 @@ import { TechProducts } from "../components/TechProducts";
 import { Up } from "../components/Up";
 import { Section } from "../components/section/Section";
 import History from "../components/history/History";
+import { Toast } from "../components/Toast";
 
 
 export const getStaticProps = async () => {
@@ -82,6 +83,11 @@ export default function Home({ products, history }) {
       {
         visibleScroll && <Up scrollToTop={scrollToTop} />
       }
+      <div className="my-40">
+        <Toast 
+          failOp={false}
+        />
+      </div>
     </div>
   )
 }

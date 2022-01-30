@@ -1,7 +1,7 @@
 import { DropdownList } from "./dropdown-menu/DropdownList"
 import { Pager } from "./pager/Pager";
 import { ProductCard } from "./products/ProductCard";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useGlobal } from "../context/GlobalContext";
 import { PropSelector } from "./PropSelector"
 import _ from 'lodash'
@@ -16,6 +16,7 @@ export const TechProducts = ({ products }) => {
     const [typeActive, setTypeActive] = useState(true)
     const [resQuery, setResQuery] = useState("")
     const [items, setItems] = useState(null)
+    const interLink = useRef()
 
 
     const handleOrder = () => {
@@ -127,12 +128,15 @@ export const TechProducts = ({ products }) => {
     },[totalPages])
 
 
-    console.log("Total Paginas: ",totalPages,"Items por pag: ", items)
+    // console.log("Total Paginas: ",totalPages,"Items por pag: ", items)
 
+    const handleClick = () => {
+        interLink.current.scrollIntoView({ behavior: "smooth" });
+    }
 
     return (
         <section className="py-20 w-full max-w-[1920px] mx-auto bg-Neutral100 overflow-hidden">
-            <h2 className="w-full p-10 text-center text-M-TITLES-L2 uppercase text-Neutral900 font-black shadow-soft"><span className=" text-transparent bg-clip-text bg-gradient-to-r from-Brand-Default-Primary to-Brand-Default-Secondary" id="techProducts">{data.TechProducts.title.h2}</span> {data.TechProducts.title.span}</h2>
+            <h2 className="w-full p-10 text-center text-M-TITLES-L2 uppercase text-Neutral900 font-black shadow-soft"><span className=" text-transparent bg-clip-text bg-gradient-to-r from-Brand-Default-Primary to-Brand-Default-Secondary" id="techProducts" ref={interLink} >{data.TechProducts.title.h2}</span> {data.TechProducts.title.span}</h2>
             <div className="w-full flex flex-col py-5 justify-center">
 
                 {/* HEADER FROM GRID */}
@@ -218,6 +222,7 @@ export const TechProducts = ({ products }) => {
                     <Pager
                         actualValue={actPage}
                         endValue={totalPages}
+                        handleClick={handleClick}
                     />
                 </div>
             </div>

@@ -7,7 +7,7 @@ import { ButtonNav } from "../ButtonNav"
 import { useState } from "react"
 import { addPoints } from "../../logic/api"
 import { useGlobal } from "../../context/GlobalContext"
-import History from "../history/History"
+
 
 
 

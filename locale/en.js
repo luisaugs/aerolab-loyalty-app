@@ -67,5 +67,9 @@ export default {
             date:"date: "
         }
     },
+    toast:{
+        ok:"redeemed successfully.",
+        error:"There was a problem with the transaction."
+    }, 
     footer: "View this repository"
 }
