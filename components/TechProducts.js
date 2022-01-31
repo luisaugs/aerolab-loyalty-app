@@ -111,9 +111,9 @@ export const TechProducts = ({ products }) => {
     const cantPag = arr => Math.ceil(arr.length / items)
 
     const resize = () => {
-        if (window.innerWidth < 640) {
+        if (window.innerWidth < 1024) {
             setItems(4)
-        } else if (window.innerWidth >= 640 && window.innerWidth < 1024) {
+        } else if (window.innerWidth >= 1024 && window.innerWidth < 1900) {
             setItems(6)
         } else {
             setItems(8)
@@ -140,17 +140,21 @@ export const TechProducts = ({ products }) => {
             <div className="w-full flex flex-col py-5 justify-center">
 
                 {/* HEADER FROM GRID */}
-                <div className="flex flex-col justify-center items-center px-4 pb-4 mx-auto max-w-[1400px] md:p-4 md:w-full md:px-[30px] xl:justify-between">
-                    <div className="w-full md:flex md:flex-col md:items-start lg:justify-center xl:flex-row xl:gap-x-2 xl:items-center xl:w-[1000px]">
-                        <div className=" flex justify-center pb-4  md:w-60 xl:pb-0 relative z-30 ">
+                <div className=" flex flex-col justify-center items-center px-4 pb-4 mx-auto lg:max-w-[1024px] lg:w-full lg:justify-between lg:pb-0 dsk:max-w-[1464px] dsk:flex-row dsk:px-7">
+
+                    <div className="lg:w-full lg:flex lg:flex-row lg:items-center dsk:w-[1000px]">
+                        <div className="relative z-30 mb-5 lg:mb-0">
                             <DropdownList handleSelection={handleSelection} />
                         </div>
-                        <div className="py-4 border rounded-xl w-[335px] border-Neutral500/50 md:flex md:items-center md:w-full md:overflow-x-auto xl:flex-row xl:py-1 xl:border-none">
-                            <div className="w-full pb-4 text text-center text-M-TEXT-L1-Default text-Neutral600 md:pb-0 md:px-2 md:w-[135px] xl:w-[200px] xl:text-right">
+                        {/* container btns */}
+                        <div className="border py-4 rounded-xl w-[335px] border-Neutral500/50 lg:flex lg:items-center lg:w-full lg:border-none dsk:w-[800px]">
+                            {/* text */}
+                            <div className="w-full pb-4 text text-center text-M-TEXT-L1-Default text-Neutral600 lg:pb-0 dsk:w-[150px]">
                                 {data.TechProducts.sortBy}
                             </div>
-                            <div className="w-full flex justify-evenly gap-1 md:gap-0 md:px-1">
-                                <div className="flex flex-col justify-center items-center gap-3 md:gap-0 md:flex-row">
+                            {/* buttons */}
+                            <div className="w-full flex justify-evenly gap-1 dsk:max-w-[600px]">
+                                <div className="flex flex-col justify-center items-center gap-3 lg:flex-row">
                                     <PropSelector
                                         value={"asc"}
                                         active={orderActive}
@@ -163,7 +167,7 @@ export const TechProducts = ({ products }) => {
                                     />
                                 </div>
                                 <div className="border border-Neutral500 w-[1px]"></div>
-                                <div className="flex flex-col justify-center items-center gap-3 md:gap-0 md:flex-row">
+                                <div className="flex flex-col justify-center items-center gap-3 lg:flex-row">
                                     {lang == "en"
                                         ?
                                         <>
@@ -199,10 +203,18 @@ export const TechProducts = ({ products }) => {
                         </div>
 
                     </div>
+                    <div className="hidden dsk:block">
+                    <Pager
+                        actualValue={actPage}
+                        endValue={totalPages}
+                        handleClick={handleClick}
+                    />
                 </div>
+                </div>
+
                 {/* CARDS GRID */}
                 <div className="">
-                    <div className="px-4 mx-auto max-w-[1400px] bg-Neutral100 flex flex-col gap-5 md:grid md:grid-cols-2 md:gap-y-5 md:gap-0 tbt:px-5 lg:grid-cols-3 2xl:grid-cols-4">
+                    <div className="px-4 mx-auto bg-Neutral100 flex flex-col gap-5 lg:grid lg:grid-cols-3 lg:max-w-[1024px] dsk:grid-cols-4 dsk:max-w-[1464px]">
                         {
                             arrayProd.slice((actPage - 1) * items, actPage * items).map(p => (
                                 <ProductCard

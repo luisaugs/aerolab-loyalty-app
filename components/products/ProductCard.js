@@ -24,21 +24,9 @@ export const ProductCard = ({ idProduct, img, name, category, cost }) => {
             const data = await redeemPoints(idProduct, cost)
             if (data.includes("successfully")) {
                 setInProcess(false)
-                //Poner toast success
-                //Poner toast success
-                //Poner toast success
-                //Poner toast success
-                //Poner toast success
-                //Poner toast success
             }
             if (data === "User don't have enogh points") {
                 setInProcess(false)
-                //Poner toast error
-                //Poner toast error
-                //Poner toast error
-                //Poner toast error
-                //Poner toast error
-                //Poner toast error
             }
         } catch (error) {
             console.log(error, "Error during redeem")

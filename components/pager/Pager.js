@@ -8,62 +8,36 @@ import { PagerButton } from "./PagerButton"
 export const Pager = ({ actualValue = 1, endValue = 5, handleClick }) => {
 
     const { data, totalPages, actPage, setActPage } = useGlobal()
-    const [disableLeft, setDisableLeft] = useState(true)
-    const [disableRight, setDisableRight] = useState(false)
 
     const addPage = () => {
-        if (actPage == totalPages) {
-            setDisableRight(true)
-        } else {
-            setDisableRight(false)
-            setActPage(prev => prev + 1)
-        }
+        setActPage(prev => prev + 1)
+        scroll()
     }
 
     const sustPage = () => {
-        if (actPage == 1) {
-            setDisableLeft(true)
-        } else {
-            setDisableLeft(false)
-            setActPage(prev => prev - 1)
-
-        }
+        setActPage(prev => prev - 1)
+        scroll()
     }
 
-    const statusButtons = () => {
-        if (actPage == totalPages) {
-            setDisableRight(true)
-        } else {
-            setDisableRight(false)
-        }
-
-        if (actPage == 1) {
-            setDisableLeft(true)
-        } else {
-            setDisableLeft(false)
-        }
+    const scroll = () => {
+        window.scrollTo({ top: document.querySelector("#techProducts").offsetTop - 20, behavior: 'smooth' })
     }
-
-    useEffect(() => {
-        // handleClick()
-        statusButtons()
-    }, [actPage])
 
     return (
         <div className="py-3 px-4 rounded-2xl border border-Neutral300 flex justify-center items-center w-fit">
-            <div onClick={handleClick}>
+            <div>
                 <PagerButton
                     left={true}
-                    disabled={disableLeft}
+                    disabled={actPage == 1}
                     handBtn={sustPage}
                 />
             </div>
             <div className="px-6">
                 <p className="text-D-TEXT-L1-Default text-Neutral600">{data.TechProducts.pager.page} <span className="text-transparent bg-clip-text bg-gradient-to-r from-Brand-Default-Primary to-Brand-Default-Secondary">{actualValue} {data.TechProducts.pager.of} {endValue}</span></p>
             </div>
-            <div onClick={handleClick}>
+            <div>
                 <PagerButton
-                    disabled={disableRight}
+                    disabled={actPage == totalPages}
                     handBtn={addPage}
                 />
             </div>

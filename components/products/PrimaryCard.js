@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { useEffect, useState } from "react"
 
 export const PrimaryCard = ({ img, name, category, disabled }) => {
@@ -19,13 +18,8 @@ export const PrimaryCard = ({ img, name, category, disabled }) => {
             onMouseEnter={() => setBorder(false)}
             onMouseLeave={() => setBorder(true)}
         >
-            <div className="w-[335px] sm:w-[320px] pt-16 border-[#DAE4F2] border rounded-t-2xl overflow-hidden flex flex-col flex-grow bg-white z-10 ">
-                <Image
-                    src={img}
-                    alt={name}
-                    width={280}
-                    height={204}
-                />
+            <div className="w-[335px] lg:w-[320px] px-[34px] pt-16 border-[#DAE4F2] border rounded-t-2xl overflow-hidden flex flex-col flex-grow bg-white z-10 ">
+                <img className="object-cover w-full mix-blend-multiply" src={img} />
             </div>
             <div className="border border-[#DAE4F2] border-t-0 rounded-b-2xl z-10 bg-white">
                 <h3 className="capitalize text-Neutral900 text-D-TEXT-L1-Default w-full pt-4 px-6">{name}</h3>

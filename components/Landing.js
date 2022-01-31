@@ -1,5 +1,4 @@
 import Image from "next/image"
-import heroDesk from "../public/assets/images/hero-desktop.png"
 import arrowDown from "../public/assets/icons/arrow-down.svg"
 import { useGlobal } from "../context/GlobalContext"
 
@@ -12,7 +11,7 @@ export const Landing = () => {
         <section className="relative pb-80 select-none flex flex-col dsk:flex-row max-w-[1920px] mx-auto w-[100%] dsk:pb-52 bg-white">
 
             {/* TEXT */}
-            <div className="w-full max-w-[289px] mx-auto dsk:max-w-[50%] pt-[168px] dsk:w-3/6 dsk:pt-56">
+            <div className="w-full max-w-[289px] mx-auto dsk:max-w-[50%] pt-[168px] dsk:w-3/6 dsk:pt-56 dsk:ml-5">
                 <div className="dsk:pl-60">
                     <span className="block text-center dsk:inline uppercase text-M-TEXT-L1-All dsk:text-D-TEXT-L1-All text-Neutral600 pb-2">{data.Landing.span}</span>
                     <div className="font-black text-center dsk:text-left text-M-TITLES-L1 dsk:text-D-TITLE-L1 uppercase">
@@ -40,13 +39,9 @@ export const Landing = () => {
 
 
             {/* IMAGE AND BG */}
-            <div className="absolute -bottom-40 z-0 w-[335px] h-[518px] sm:w-[580px] sm:h-[518px] left-1/2 translate-x-[-50%] dsk:left-0 dsk:translate-x-0 dsk:relative dsk:bottom-0 dsk:h-auto dsk:z-10 dsk:w-3/6 dsk:pt-11 dsk:px-32">
-                <Image className="relative z-10"
-                    src={heroDesk}
-                    // layout="fill"
-                    // layout="fixed"
-                    objectFit='contain'
-                />
+            <div className="absolute -bottom-[150px] sm:-bottom-40 dsk:bottom-0 z-0 h-[518px] w-[580px] left-1/2 translate-x-[-50%] dsk:left-0 dsk:translate-x-0 dsk:relative dsk:h-auto dsk:z-10 dsk:w-3/6 dsk:pt-11 dsk:px-32 dsk:mr-16">
+
+                <img className="relative z-10" src="/assets/images/hero-desktop.png" />
                 <div
                     className="hidden dsk:block dsk:absolute w-[60%] h-[70%] bottom-0 bg-gradient-to-r from-Brand-Default-Primary/50 to-Brand-Default-Secondary/50 z-[0] rounded-[12.5%] left-1/2 translate-x-[-50%] pr-28 ">
                 </div>

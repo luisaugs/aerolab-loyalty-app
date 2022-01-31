@@ -5,9 +5,9 @@ import chevron from "../../public/assets/icons/chevron-active.svg"
 import { ButtonDropdown } from "./ButtonDropdown"
 
 // TW class
-const divMainDrop_class = "text-Neutral600 text-D-TEXT-L1-Default relative w-[335px] h-max"
-const btnOpen_class = "bg-white w-full py-2 px-4 border rounded-xl flex items-center justify-between lg:hover:bg-Neutral200 pointer-events-none"
-const btnClose_class =  "bg-white w-full py-2 px-4 border rounded-xl flex items-center justify-between lg:hover:bg-Neutral200"
+const divMainDrop_class = "text-Neutral600 text-D-TEXT-L1-Default relative w-[335px] h-max lg:w-[225px] dsk:h-[59px]"
+const btnOpen_class = "bg-white w-full py-2 px-4 border rounded-xl flex items-center justify-between lg:hover:bg-Neutral200 pointer-events-none dsk:h-[59px]"
+const btnClose_class =  "bg-white w-full py-2 px-4 border rounded-xl flex items-center justify-between lg:hover:bg-Neutral200 dsk:h-[59px]"
 const divDropOpen_class = "absolute border rounded-xl w-full top-[110%] h-auto flex flex-col overflow-hidden animate-animaOpacity lg:hover:bg-Neutral100"
 
 export const DropdownList = ({handleSelection}) => {

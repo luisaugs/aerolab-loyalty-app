@@ -26,7 +26,7 @@ export const Layout = ({ children }) => {
 
 
     return (
-        <div>
+        <div className="min-w-[375px] overflow-hidden bg-Neutral100">
             {showNav &&
                 <Navbar />
             }
