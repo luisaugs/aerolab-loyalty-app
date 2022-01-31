@@ -12,7 +12,7 @@ export const CardRedemmed = ({ name = "name", category = "category", src, cost, 
         <div className="min-w-max ">
             <div className="select-none m-8 bg-Neutral100 flex flex-col justify-center items-center rounded-2xl overflow-hidden sm:flex-row">
                 <div className="p-4 flex flex-col justify-center items-center border-b border-Neutral500 sm:border-b-0">
-                    <Image
+                    <Image className="mix-blend-multiply"
                         src={src || test}
                         width={252}
                         height={182}

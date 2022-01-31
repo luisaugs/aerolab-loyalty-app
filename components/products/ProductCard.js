@@ -12,7 +12,7 @@ const btnCTA_class = "w-full pt-4"
 
 export const ProductCard = ({ idProduct, img, name, category, cost }) => {
 
-    const { data, points, redeemPoints } = useGlobal()
+    const { data, points, redeemPoints, notis, setNotis } = useGlobal()
     const [price, setPrice] = useState(null)
     const [inProcess, setInProcess] = useState(false)
     const [disabled, setDisabled] = useState(false)
@@ -24,12 +24,15 @@ export const ProductCard = ({ idProduct, img, name, category, cost }) => {
             const data = await redeemPoints(idProduct, cost)
             if (data.includes("successfully")) {
                 setInProcess(false)
+                addNoti(false)
             }
             if (data === "User don't have enogh points") {
                 setInProcess(false)
+                addNoti(true)
             }
         } catch (error) {
             console.log(error, "Error during redeem")
+            addNoti(true)
         }
 
     }
@@ -51,6 +54,15 @@ export const ProductCard = ({ idProduct, img, name, category, cost }) => {
         updatePrice()
     },[inProcess, points])
 
+    //Toast
+    const addNoti = (operation) => {
+        const newNotis = [...notis, {
+            id: Math.random().toString(36).slice(2),
+            pName: name,
+            failOp: operation
+        }]
+        setNotis(newNotis)
+    }
 
 
     return (

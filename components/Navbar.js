@@ -4,8 +4,8 @@ import logoFull from '../public/assets/icons/aerolab-logo-1.svg'
 
 
 // TW classes
-const navbar_class = "bg-white w-full md:w-[95%] dsk:top-4 flex items-center justify-between max-w-[970px] fixed top-0 left-1/2 translate-x-[-50%] z-50 animate-animaOpacity"
-const logo_class = "py-5 flex items-center justify-center"
+const navbar_class = "bg-Neutral0 w-full md:w-[95%] dsk:top-4 flex items-center justify-between max-w-[970px] fixed top-0 left-1/2 translate-x-[-50%] z-50 animate-animaOpacity"
+const logo_class = "py-5 flex items-center justify-center pl-5"
 
 
 
@@ -22,7 +22,7 @@ export const Navbar = () => {
                     />
                 </a>
             </div>
-            <div>
+            <div className='pr-5 bg-ne'>
                 <AeroPay />
             </div>
         </nav>

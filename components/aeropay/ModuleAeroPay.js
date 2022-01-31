@@ -12,16 +12,16 @@ import { useGlobal } from "../../context/GlobalContext"
 
 
 //Buttons ico
-const btnDark = {
-    src: "/assets/propios/dark-mode.svg",
-    w: 24,
-    h: 24
-}
-const btnLight = {
-    src: "/assets/propios/light-mode.svg",
-    w: 24,
-    h: 24
-}
+// const btnDark = {
+//     src: "/assets/propios/dark-mode.svg",
+//     w: 24,
+//     h: 24
+// }
+// const btnLight = {
+//     src: "/assets/propios/light-mode.svg",
+//     w: 24,
+//     h: 24
+// }
 const btnES = {
     src: "/assets/propios/spain.svg",
     w: 24,
@@ -169,14 +169,15 @@ export const ModuleAeroPay = ({ showMenu }) => {
                     </div>
                 </div>
                 <div>
-                    <div className="flex justify-between pt-6">
-                        <span>
+                    <div className="flex justify-around pt-6">
+                        {/* dark mode */}
+                        {/* <span>
                             <ButtonNav
                                 src={btnDark.src}
                                 w={btnDark.w}
                                 h={btnDark.h}
                             />
-                        </span>
+                        </span> */}
                         <span>
                             {lang == "en"
                                 ? <ButtonNav

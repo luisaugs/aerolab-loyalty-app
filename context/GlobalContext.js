@@ -71,6 +71,11 @@ export const GlobalProvider = ({ children }) => {
       setModalHistory(!modalHistory)
     }
 
+
+    //Toast redeem
+    const [notis, setNotis] = useState([])
+
+
     
     const values = {
         user,
@@ -86,7 +91,9 @@ export const GlobalProvider = ({ children }) => {
         totalPages,
         setTotalPages,
         modalHistory,
-        handleModal
+        handleModal,
+        notis,
+        setNotis
     }
 
     return (

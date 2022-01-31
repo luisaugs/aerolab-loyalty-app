@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react";
 import { useGlobal } from "../context/GlobalContext";
-import { getUserHistory, getProducts } from '../logic/api'
+import { getProducts } from '../logic/api'
 import { Landing } from "../components/Landing";
 import { TechProducts } from "../components/TechProducts";
 import { Up } from "../components/Up";
 import { Section } from "../components/section/Section";
 import History from "../components/history/History";
-import { Toast } from "../components/Toast";
-
+import Notifications from "../components/Notifications";
 
 export const getStaticProps = async () => {
 
   try {
-    const [dataProducts, dataHistory] = await Promise.all([getProducts(), getUserHistory()])
+    // const [dataProducts, dataHistory] = await Promise.all([getProducts(), getUserHistory()])
+    const dataProducts = await getProducts()
+
 
     return {
       props: {
         products: dataProducts,
-        history: dataHistory,
+        // history: dataHistory,
         // userInfo: dataUserInfo
       }
     }
@@ -29,7 +30,7 @@ export const getStaticProps = async () => {
 }
 
 
-export default function Home({ products, history }) {
+export default function Home({ products }) {
 
   const { modalHistory } = useGlobal()
 
@@ -61,7 +62,6 @@ export default function Home({ products, history }) {
 
 
   useEffect(() => {
-    // modalHistory && (document.body.style.overflow = 'hidden');
     !modalHistory && (document.body.style.overflow = '');
   }, [modalHistory]);
 
@@ -70,10 +70,7 @@ export default function Home({ products, history }) {
     <div className='min-h-screen'>
 
       {
-        modalHistory &&
-        <History
-          history={history}
-        />
+        modalHistory && <History />
       }
       <Landing />
       <Section />
@@ -83,11 +80,7 @@ export default function Home({ products, history }) {
       {
         visibleScroll && <Up scrollToTop={scrollToTop} />
       }
-      <div className="my-40">
-        <Toast 
-          failOp={false}
-        />
-      </div>
+      <Notifications />
     </div>
   )
 }

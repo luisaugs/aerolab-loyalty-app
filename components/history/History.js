@@ -4,6 +4,7 @@ import { useGlobal } from "../../context/GlobalContext";
 import cross from "../../public/assets/icons/cross-default.svg"
 import arrow from "../../public/assets/propios/arrow-d.svg"
 import { CardRedemmed } from "./CardRedemmed";
+import { getUserHistory } from "../../logic/api"
 
 
 
@@ -12,7 +13,7 @@ import { CardRedemmed } from "./CardRedemmed";
 const bkgDis_class = "fixed top-0 w-full h-full justify-center flex flex-col items-center p-10 z-[50] bg-gray-900/50 backdrop-blur-lg animate-animaOpacity duration-300"
 const bkgAct_class = "fixed top-0 w-full h-full justify-center flex flex-col items-center p-10 z-[50] bg-gradient-to-r from-Neutral900 to-Neutral600 animate-animaOpacity duration-300"
 
-const History = ({ history }) => {
+const History = () => {
 
     const { data, handleModal, modalHistory } = useGlobal()
     const [background, setBackground] = useState(bkgAct_class)
@@ -20,9 +21,19 @@ const History = ({ history }) => {
     const [showArrow, setShowArrow] = useState(true)
 
 
+    const gettingHistory = async() => {
+        try {
+            const array = await getUserHistory()
+            setHistArray(array)
+
+        } catch (error) {
+            console.log("Error getting history", error)
+        }
+    }
+
     useEffect(() => {
-        setHistArray(history)
-    }, [history])
+        gettingHistory()
+    }, [])
 
 
     //esc to exit
