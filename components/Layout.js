@@ -34,6 +34,7 @@ export const Layout = ({ children }) => {
                 <meta property="og:url" content="https://aerolab-loyalty-app.vercel.app/"></meta>
                 <meta property="og:image" content="https://aerolab-loyalty-app.vercel.app/assets/propios/logo-app.png"></meta>
                 <meta name="description" content="Challenge Aerolab made by Luis Augsburger"></meta>
+                <title>Loyalty App</title>
             </Head>
             {showNav &&
                 <Navbar />
