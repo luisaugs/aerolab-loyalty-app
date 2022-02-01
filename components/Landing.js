@@ -29,7 +29,7 @@ export const Landing = () => {
 
                 {/* LINK */}
                 <div className="dsk:pl-60 uppercase">
-                    <a onClick={scroll} className="max-w-full dsk:max-w-[275px] p-4 flex justify-around items-center bg-gradient-to-r from-Brand-Default-Primary to-Brand-Default-Secondary rounded-2xl dsk:text-D-TEXT-L1-Default text-Neutral200 relative 2xl:hover:top-[2px] z-10">{data.Landing.btn}
+                    <a onClick={scroll} className="max-w-full dsk:max-w-[275px] p-4 flex justify-around items-center bg-gradient-to-r from-Brand-Default-Primary to-Brand-Default-Secondary rounded-2xl dsk:text-D-TEXT-L1-Default text-Neutral200 relative 2xl:hover:top-[2px] z-10 cursor-pointer ">{data.Landing.btn}
                         <span className="flex justify-center items-center animate-bounce">
                             <Image
                                 src={arrowDown}
@@ -43,11 +43,11 @@ export const Landing = () => {
 
 
             {/* IMAGE AND BG */}
-            <div className="absolute -bottom-[150px] sm:-bottom-40 dsk:bottom-0 z-0 h-[518px] w-[580px] left-1/2 translate-x-[-50%] dsk:left-0 dsk:translate-x-0 dsk:relative dsk:h-auto dsk:z-10 dsk:w-3/6 dsk:pt-11 dsk:px-32 dsk:mr-16">
+            <div className="absolute -bottom-[150px] sm:-bottom-40 dsk:-bottom-0 z-0 h-[518px] w-[580px] left-1/2 translate-x-[-50%] dsk:left-0 dsk:translate-x-0 dsk:relative dsk:h-auto dsk:z-10 dsk:w-3/6 dsk:pt-11 dsk:px-32 dsk:mr-16">
 
                 <img className="relative z-10" src="/assets/images/hero-desktop.png" />
                 <div
-                    className="hidden dsk:block dsk:absolute w-[60%] h-[70%] bottom-0 bg-gradient-to-r from-Brand-Default-Primary/50 to-Brand-Default-Secondary/50 z-[0] rounded-[12.5%] left-1/2 translate-x-[-50%] pr-28 ">
+                    className="hidden dsk:block dsk:absolute w-[60%] h-[70%] bottom-0 bg-gradient-to-r from-Brand-Default-Primary/50 to-Brand-Default-Secondary/50 z-[0] rounded-[12.5%] left-1/2 translate-x-[-50%] pr-28 dsk:mb-[20px]">
                 </div>
             </div>
         </section>

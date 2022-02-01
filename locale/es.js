@@ -16,20 +16,20 @@ export default {
     Section: [
         {
             card_1: {
-                title: "navega",
+                title: "1—navega",
                 body: "Navega nuestro catálogo con más de 20 productos tecnológicos"
             }
         },
         {
             card_2: {
-                title: "elige",
+                title: "2—elige",
                 body: "Cambia tus AeroPuntos por el ítem que quieras"
             }
         },
         {
             card_3: {
-                title: "disfruta",
-                body: "¡Todo listo, podés relajarte! ¡Nosotros nos encargamos de la entrega de tu producto!"
+                title: "3—disfruta",
+                body: "¡Todo listo, podés relajarte! ¡Nosotros nos encargamos de la entrega!"
             }
         },
     ],

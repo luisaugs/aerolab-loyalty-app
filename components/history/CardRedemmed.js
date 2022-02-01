@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { useGlobal } from "../../context/GlobalContext";
-import test from "../../public/assets/propios/sin_bg/AcerAspire-x1.png"
 
 
 export const CardRedemmed = ({ name = "name", category = "category", src, cost, date }) => {
@@ -13,7 +12,7 @@ export const CardRedemmed = ({ name = "name", category = "category", src, cost, 
             <div className="select-none m-8 bg-Neutral100 flex flex-col justify-center items-center rounded-2xl overflow-hidden sm:flex-row">
                 <div className="p-4 flex flex-col justify-center items-center border-b border-Neutral500 sm:border-b-0">
                     <Image className="mix-blend-multiply"
-                        src={src || test}
+                        src={src}
                         width={252}
                         height={182}
                     />

@@ -16,19 +16,19 @@ export default {
     Section: [
         {
             card_1: {
-                title: "browse",
+                title: "1—browse",
                 body: "Browse our tech catalog with more than 20 top tech products"
             }
         },
         {
             card_2: {
-                title: "choose",
+                title: "2—choose",
                 body: "Exchange your hard earned AeroPoints for the item you want"
             }
         },
         {
             card_3: {
-                title: "enjoy",
+                title: "3—enjoy",
                 body: "All done, you can relax! We’ll take care of delivery of your tech item!"
             }
         },

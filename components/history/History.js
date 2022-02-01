@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useGlobal } from "../../context/GlobalContext";
-import cross from "../../public/assets/icons/cross-default.svg"
+import cross from "../../public/assets/propios/cross-default.svg"
 import arrow from "../../public/assets/propios/arrow-d.svg"
 import { CardRedemmed } from "./CardRedemmed";
 import { getUserHistory } from "../../logic/api"
@@ -90,11 +90,10 @@ const History = () => {
                 </span>
             </button>
             <h2
-                className="text-M-TEXT-L1-Default text-Neutral900 uppercase">
+                className="text-M-TEXT-L1-Default text-Neutral100 uppercase">
                 {data.history.header}
             </h2>
             <div className="overflow-y-auto" onScroll={handleScroll}>
-
                 {
                     histArray &&
                     histArray.slice(-15).reverse().map(e => (
@@ -108,7 +107,6 @@ const History = () => {
                         />
                     ))
                 }
-
             </div>
 
             {

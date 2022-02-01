@@ -8,7 +8,7 @@ const contInf_class = "w-[311px] h-[200px] dsk:w-[508px] dsk:h-[154px] px-6 pt-4
 const header_class = "flex items-center"
 const spanHeaderSup_class = "flex items-center justify-center rounded-lg p-1 bg-[#E5F0FF]"
 const spanHeaderInf_class = "pl-4 text-M-TITLES-L3 uppercase font-black text-transparent bg-clip-text bg-gradient-to-r from-Brand-Default-Primary to-Brand-Default-Secondary dsk:text-D-TITLE-L3"
-const par_class = "pt-3 pb-6 text-M-TEXT-L1-Default text-Neutral600 dsk:text-D-TEXT-L1-Default"
+const par_class = "pt-3 pb-6 text-M-TEXT-L1-Default text-Neutral600 dsk:w-[375px] dsk:text-D-TEXT-L1-Default"
 
 
 
