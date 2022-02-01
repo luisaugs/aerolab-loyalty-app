@@ -73,12 +73,13 @@ export const GlobalProvider = ({ children }) => {
 
 
     //Toast redeem
-    const [notis, setNotis] = useState([])
-
-
+    const [notis, setNotis] = useState({})
+    const [showToast, setShowToast] = useState(false)
+    
     
     const values = {
         user,
+        setUser,
         points,
         setPoints,
         lang,
@@ -93,7 +94,9 @@ export const GlobalProvider = ({ children }) => {
         modalHistory,
         handleModal,
         notis,
-        setNotis
+        setNotis,
+        showToast,
+        setShowToast
     }
 
     return (

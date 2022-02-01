@@ -22,17 +22,17 @@ export const DropdownList = ({handleSelection}) => {
     }
 
     const checkIfClickedOutside = e => {
-        // If the menu is open and the clicked target is not within the menu, then close the menu
         if (isOpen && listDrop.current && !listDrop.current.contains(e.target)) {
             setIsOpen(false)
         }
     }
 
     useEffect(() => {
-        document.addEventListener("mousedown", checkIfClickedOutside)
-
+        window.addEventListener("mousedown", checkIfClickedOutside)
+        window.addEventListener('keydown', handleEsc)
         return () => {
-            document.removeEventListener("mousedown", checkIfClickedOutside)
+            window.removeEventListener("mousedown", checkIfClickedOutside)
+            window.removeEventListener('keydown', handleEsc)
         }
     }, [isOpen])
 
@@ -41,14 +41,6 @@ export const DropdownList = ({handleSelection}) => {
             setIsOpen(false);
         }
     }
-
-    useEffect(() => {
-        window.addEventListener('keydown', handleEsc)
-
-        return () => {
-            window.removeEventListener('keydown', handleEsc)
-        }
-    })
 
 
     const getOption = (text) => {

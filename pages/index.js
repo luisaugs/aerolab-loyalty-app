@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useGlobal } from "../context/GlobalContext";
-import { getProducts } from '../logic/api'
+import { getProducts, getUserInfo } from '../logic/api'
 import { Landing } from "../components/Landing";
 import { TechProducts } from "../components/TechProducts";
 import { Up } from "../components/Up";
@@ -11,15 +11,14 @@ import Notifications from "../components/Notifications";
 export const getStaticProps = async () => {
 
   try {
-    // const [dataProducts, dataHistory] = await Promise.all([getProducts(), getUserHistory()])
-    const dataProducts = await getProducts()
+    const [products, userInfo] = await Promise.all([getProducts(), getUserInfo()])
+    // const dataProducts = await getProducts()
 
 
     return {
       props: {
-        products: dataProducts,
-        // history: dataHistory,
-        // userInfo: dataUserInfo
+        products,
+        userInfo
       }
     }
 
@@ -30,9 +29,9 @@ export const getStaticProps = async () => {
 }
 
 
-export default function Home({ products }) {
+export default function Home({ products, userInfo }) {
 
-  const { modalHistory } = useGlobal()
+  const { modalHistory, setPoints, setUser } = useGlobal()
 
   // Boton scroll to top
   const [visibleScroll, setVisibleScroll] = useState(false)
@@ -65,6 +64,11 @@ export default function Home({ products }) {
     !modalHistory && (document.body.style.overflow = '');
   }, [modalHistory]);
 
+
+  useEffect(() => {
+    setUser(userInfo.name)
+    setPoints(userInfo.points)
+  }, [])
 
   return (
     <div className='min-h-screen'>

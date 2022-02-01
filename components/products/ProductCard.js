@@ -12,7 +12,7 @@ const btnCTA_class = "w-full pt-4"
 
 export const ProductCard = ({ idProduct, img, name, category, cost }) => {
 
-    const { data, points, redeemPoints, notis, setNotis } = useGlobal()
+    const { data, points, redeemPoints, notis, setNotis, setShowToast } = useGlobal()
     const [price, setPrice] = useState(null)
     const [inProcess, setInProcess] = useState(false)
     const [disabled, setDisabled] = useState(false)
@@ -39,7 +39,7 @@ export const ProductCard = ({ idProduct, img, name, category, cost }) => {
 
 
     const updatePrice = () => {
-        if(Number.isNaN(points)) return
+        if (Number.isNaN(points)) return
         if (points >= cost) {
             setPrice(cost)
             setDisabled(false)
@@ -50,18 +50,22 @@ export const ProductCard = ({ idProduct, img, name, category, cost }) => {
     }
 
 
-    useEffect(()=>{
+    useEffect(() => {
         updatePrice()
-    },[inProcess, points])
+    }, [inProcess, points])
 
     //Toast
     const addNoti = (operation) => {
-        const newNotis = [...notis, {
-            id: Math.random().toString(36).slice(2),
+        const newNotis = {
             pName: name,
             failOp: operation
-        }]
+        }
+        clearTimeout(window.timer)
         setNotis(newNotis)
+        setShowToast(true)
+        window.timer = setTimeout(() => {
+            setShowToast(false)
+        }, 2000)
     }
 
 

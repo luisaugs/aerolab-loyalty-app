@@ -16,7 +16,7 @@ const prod_class = "capitalize block text-M-TEXT-L1-Default text-Neutral900 sm:p
 const btnClose_class = "flex items-center justify-center"
 
 
-export const Toast = ({ product = "Product", failOp, deleteNoti, id }) => {
+export const Toast = ({ product = "Product", failOp, deleteNoti}) => {
 
     const {data} = useGlobal()
 
@@ -57,7 +57,7 @@ export const Toast = ({ product = "Product", failOp, deleteNoti, id }) => {
 
     useEffect(()=>{
         editLongName(product)
-    },[])
+    },[product])
 
 
     return (
@@ -99,7 +99,7 @@ export const Toast = ({ product = "Product", failOp, deleteNoti, id }) => {
             </div>
 
 
-            <button onClick={()=>deleteNoti(id)}>
+            <button onClick={deleteNoti}>
                 <span className={btnClose_class}>
 
                     {

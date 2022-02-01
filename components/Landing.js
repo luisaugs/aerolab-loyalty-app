@@ -13,9 +13,9 @@ export const Landing = () => {
 
     return (
         <section className="relative pb-80 select-none flex flex-col dsk:flex-row max-w-[1920px] mx-auto w-[100%] dsk:pb-52 bg-white">
-
+            <img className="absolute top-[138px] w-[1920px] z-0" src="/assets/propios/waves.svg" alt="waves"/>
             {/* TEXT */}
-            <div className="w-full max-w-[289px] mx-auto dsk:max-w-[50%] pt-[168px] dsk:w-3/6 dsk:pt-56 dsk:ml-5">
+            <div className="w-full max-w-[289px] mx-auto dsk:max-w-[50%] pt-[168px] dsk:w-3/6 dsk:pt-56 dsk:ml-5 relative z-10">
                 <div className="dsk:pl-60">
                     <span className="block text-center dsk:inline uppercase text-M-TEXT-L1-All dsk:text-D-TEXT-L1-All text-Neutral600 pb-2">{data.Landing.span}</span>
                     <div className="font-black text-center dsk:text-left text-M-TITLES-L1 dsk:text-D-TITLE-L1 uppercase">
