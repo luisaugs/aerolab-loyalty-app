@@ -13,7 +13,8 @@ export const Landing = () => {
 
     return (
         <section className="relative pb-80 select-none flex flex-col dsk:flex-row max-w-[1920px] mx-auto w-[100%] dsk:pb-52 bg-white">
-            <img className="absolute top-[138px] w-[1920px] z-0" src="/assets/propios/waves.svg" alt="waves"/>
+            {/* Waves */}
+            <img className="absolute top-[138px] w-[1920px] z-0 " src="/assets/propios/waves.svg" alt="waves"/>
             {/* TEXT */}
             <div className="w-full max-w-[289px] mx-auto dsk:max-w-[50%] pt-[168px] dsk:w-3/6 dsk:pt-56 dsk:ml-5 relative z-10">
                 <div className="dsk:pl-60">
@@ -45,7 +46,7 @@ export const Landing = () => {
             {/* IMAGE AND BG */}
             <div className="absolute -bottom-[150px] sm:-bottom-40 dsk:-bottom-0 z-0 h-[518px] w-[580px] left-1/2 translate-x-[-50%] dsk:left-0 dsk:translate-x-0 dsk:relative dsk:h-auto dsk:z-10 dsk:w-3/6 dsk:pt-11 dsk:px-32 dsk:mr-16">
 
-                <img className="relative z-10" src="/assets/images/hero-desktop.png" />
+                <img className="relative z-10" src="/assets/images/hero-desktop.png" alt="logo brand"/>
                 <div
                     className="hidden dsk:block dsk:absolute w-[60%] h-[70%] bottom-0 bg-gradient-to-r from-Brand-Default-Primary/50 to-Brand-Default-Secondary/50 z-[0] rounded-[12.5%] left-1/2 translate-x-[-50%] pr-28 dsk:mb-[20px]">
                 </div>

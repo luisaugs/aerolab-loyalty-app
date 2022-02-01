@@ -27,8 +27,8 @@ const styles = [
     "dsk:absolute dsk:left-[50%] dsk:translate-x-[-50%] dsk:-bottom-[528px]",
     "dsk:absolute dsk:right-[14%] dsk:-bottom-[550px] dsk:rotate-3"
 ]
-const section_class = "w-full sm:pt-[100px] pt-[100px] lg:pt-0 lg:h-[528px] bg-gradient-to-r from-Brand-Default-Primary/50 to-Brand-Default-Secondary/50 dsk:max-w-[1920px] dsk:mx-auto"
-const div_class = "relative flex flex-col gap-6 items-center pb-10 lg:pb-0 lg:grid lg:grid-cols-3 lg:gap-0 lg:max-w-[1024px] lg:mx-auto dsk:max-w-[1920px] lg:pt-20 dsk:pt-0"
+const section_class = "w-full sm:pt-[100px] pt-[100px] lg:pt-0 lg:h-[528px] bg-gradient-to-r from-Brand-Default-Primary/50 to-Brand-Default-Secondary/50 dsk:max-w-[1920px] dsk:mx-auto relative z-10"
+const div_class = "relative flex flex-col gap-6 items-center pb-10 lg:pb-0 lg:grid lg:grid-cols-3 lg:gap-0 lg:max-w-[1024px] lg:mx-auto dsk:max-w-[1920px] lg:pt-20 dsk:pt-0 "
 
 
 

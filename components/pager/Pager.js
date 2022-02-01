@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react"
 import { useGlobal } from "../../context/GlobalContext"
 import { PagerButton } from "./PagerButton"
 
 
 
 
-export const Pager = ({ actualValue = 1, endValue = 5, handleClick }) => {
+export const Pager = ({ actualValue = 1, endValue = 5 }) => {
 
     const { data, totalPages, actPage, setActPage } = useGlobal()
 

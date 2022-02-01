@@ -19,12 +19,15 @@ const History = () => {
     const [background, setBackground] = useState(bkgAct_class)
     const [histArray, setHistArray] = useState([])
     const [showArrow, setShowArrow] = useState(true)
+    const [loading, setLoading] = useState(false)
 
 
-    const gettingHistory = async() => {
+    const gettingHistory = async () => {
         try {
+            setLoading(true)
             const array = await getUserHistory()
             setHistArray(array)
+            setLoading(false)
 
         } catch (error) {
             console.log("Error getting history", error)
@@ -49,20 +52,19 @@ const History = () => {
         return () => {
             window.removeEventListener('keydown', handleEsc)
         }
-    })
+    }, [])
 
 
     const detectBrowser = () => {
         const browser = window.navigator.userAgent
-        // console.log(browser, typeof browser)
         if (browser.toLowerCase().includes("firefox")) {
             setBackground(bkgAct_class)
         } else {
             setBackground(bkgDis_class)
         }
-    }    //block scroll on body on modal active
+    }
 
-
+    //block scroll on body on modal active
     useEffect(() => {
         detectBrowser()
         modalHistory && (document.body.style.overflow = 'hidden');
@@ -89,25 +91,38 @@ const History = () => {
                     />
                 </span>
             </button>
-            <h2
-                className="text-M-TEXT-L1-Default text-Neutral100 uppercase">
-                {data.history.header}
-            </h2>
-            <div className="overflow-y-auto" onScroll={handleScroll}>
-                {
-                    histArray &&
-                    histArray.slice(-15).reverse().map(e => (
-                        <CardRedemmed
-                            key={Math.random().toString(36).slice(2)}
-                            name={e.name}
-                            category={e.category}
-                            src={e.img.url}
-                            cost={e.cost}
-                            date={e.createDate}
-                        />
-                    ))
-                }
-            </div>
+
+            {
+                <>
+                    {
+                        loading
+                            ? <h3 className="text-base text-Neutral100 p-10">Loading...</h3>
+                            : <>
+                                <h2
+                                    className="text-M-TEXT-L1-Default text-Neutral100 uppercase">
+                                    {data.history.header}
+                                </h2>
+                                <div className="overflow-y-auto" onScroll={handleScroll}>
+                                    {
+                                        histArray &&
+                                        histArray.slice(-15).reverse().map(e => (
+                                            <CardRedemmed
+                                                key={Math.random().toString(36).slice(2)}
+                                                name={e.name}
+                                                category={e.category}
+                                                src={e.img.url}
+                                                cost={e.cost}
+                                                date={e.createDate}
+                                            />
+                                        ))
+                                    }
+                                </div>
+                            </>
+                    }
+
+
+                </>
+            }
 
             {
 

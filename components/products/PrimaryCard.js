@@ -19,7 +19,7 @@ export const PrimaryCard = ({ img, name, category, disabled }) => {
             onMouseLeave={() => setBorder(true)}
         >
             <div className="w-[335px] lg:w-[320px] px-[34px] pt-16 border-[#DAE4F2] border rounded-t-2xl overflow-hidden flex flex-col flex-grow bg-white z-10 ">
-                <img className="object-cover w-full mix-blend-multiply" src={img} />
+                <img className="object-cover w-full mix-blend-multiply" src={img} alt={name}/>
             </div>
             <div className="border border-[#DAE4F2] border-t-0 rounded-b-2xl z-10 bg-white">
                 <h3 className="capitalize text-Neutral900 text-D-TEXT-L1-Default w-full pt-4 px-6">{name}</h3>

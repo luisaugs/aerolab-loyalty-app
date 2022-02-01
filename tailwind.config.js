@@ -12,7 +12,8 @@ module.exports = {
         // => @media (min-width: 1900px) { ... }
       },
       animation: {
-        animaOpacity: 'animaOpacity .5s'
+        animaOpacity: 'animaOpacity .5s',
+        bounceOp: 'bounce-op .3s'
       },
       dropShadow: {
         'soft': '0 2px 8px rgba(0, 0, 0, 0.05)',

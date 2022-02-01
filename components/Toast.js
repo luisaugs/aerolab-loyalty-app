@@ -4,11 +4,10 @@ import close from '../public/assets/icons/cross-active.svg'
 import icoOk from '../public/assets/icons/system-success.svg'
 import icoError from '../public/assets/icons/system-error.svg'
 import { useGlobal } from "../context/GlobalContext"
-import { set } from "lodash"
 
 //TW class
-const ok_class = "border-2 w-[360px] h-24 p-6 rounded-xl flex justify-between items-start mx-auto sm:w-[532px] sm:h-20 border-Green-Default bg-Neutral100 animate-animaOpacity"
-const error_class = "border-2 w-[360px] h-24 p-6 rounded-xl flex justify-between items-start mx-auto sm:w-[532px] sm:h-20 border-Red-Default bg-Neutral100 animate-animaOpacity"
+const ok_class = "border-2 w-[360px] h-24 p-6 rounded-xl flex justify-between items-start mx-auto sm:w-[532px] sm:h-20 border-Green-Default bg-Neutral100 animate-bounceOp"
+const error_class = "border-2 w-[360px] h-24 p-6 rounded-xl flex justify-between items-start mx-auto sm:w-[532px] sm:h-20 border-Red-Default bg-Neutral100 animate-bounceOp"
 const secondDiv_class = "flex items-start sm:items-center"
 const icoLeft_class = "pr-3 flex items-center justify-center"
 const thirdDiv_class = "text-M-TEXT-L1-Default text-Neutral600 sm:flex sm:justify-center sm:items-center"

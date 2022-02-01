@@ -15,6 +15,7 @@ export const CardRedemmed = ({ name = "name", category = "category", src, cost, 
                         src={src}
                         width={252}
                         height={182}
+                        alt={name}
                     />
                 </div>
                 <div className="bg-Neutral100 w-full sm:border-l sm:border-Neutral500">
