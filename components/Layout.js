@@ -31,8 +31,8 @@ export const Layout = ({ children }) => {
             <Head>
                 <link rel="shortcut icon" href="/favicon.png"/>
                 <meta property="og:title" content="Loyalty App - Aerolab"></meta>
-                <meta property="og:url" content="https://aerolab-loyalty-app-67jfmkabc-luisaugs.vercel.app/"></meta>
-                <meta property="og:image" content={imgSrc}></meta>
+                <meta property="og:url" content="https://aerolab-loyalty-app.vercel.app/"></meta>
+                <meta property="og:image" content="https://aerolab-loyalty-app.vercel.app/assets/propios/logo-app.png"></meta>
                 <meta name="description" content="Challenge Aerolab made by Luis Augsburger"></meta>
             </Head>
             {showNav &&
