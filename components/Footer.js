@@ -24,7 +24,7 @@ export const Footer = () => {
                 .share({
                     title: "Loyalty App Aerolab",
                     text: "Hello! Checkout my challenge! - Luis Augsburger",
-                    url: "https://luis-augsburger.web.app",
+                    url: "https://aerolab-loyalty-app-67jfmkabc-luisaugs.vercel.app/",
                 })
                 .then(() => {
                     console.log("Successfully shared");

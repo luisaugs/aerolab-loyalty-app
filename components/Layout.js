@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { Footer } from "./Footer"
 import { Navbar } from "./Navbar"
 
-
+const imgSrc = "/assets/propios/logo-app.png"
 
 
 export const Layout = ({ children }) => {
@@ -31,8 +31,8 @@ export const Layout = ({ children }) => {
             <Head>
                 <link rel="shortcut icon" href="/favicon.png"/>
                 <meta property="og:title" content="Loyalty App - Aerolab"></meta>
-                <meta property="og:url" content="https://luis-augsburger.web.app/"></meta>
-                <meta property="og:image" content="https://luis-augsburger.web.app/assets/photo.29230ee3.jpg"></meta>
+                <meta property="og:url" content="https://aerolab-loyalty-app-67jfmkabc-luisaugs.vercel.app/"></meta>
+                <meta property="og:image" content={imgSrc}></meta>
                 <meta name="description" content="Challenge Aerolab made by Luis Augsburger"></meta>
             </Head>
             {showNav &&
